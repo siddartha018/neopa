@@ -7,6 +7,7 @@ type BrandItem = {
 };
 
 const BRANDS: BrandItem[] = [
+  //need to add svgs or images 
   { label: 'sonar' },
   { label: 'liva' },
   { label: 'krona' },
