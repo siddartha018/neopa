@@ -24,3 +24,18 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Marquee animation (left to right) */
+@keyframes marquee-ltr {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+/* Alias for Tailwind arbitrary animate utility */
+.animate-\[marquee-ltr_linear_infinite\] {
+  animation: marquee-ltr linear infinite;
+}
