@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
 const Arrow = ({ size = 12 }: { size?: number }) => (
   <span className="inline-flex items-center justify-center rounded-full " style={{ width: size, height: size }}>
@@ -20,36 +21,46 @@ const Arrow = ({ size = 12 }: { size?: number }) => (
 
 const Navbar = () => {
   return (
-    <header className="sticky top-0 z-50 bg-white/85 backdrop-blur supports-[backdrop-filter]:bg-white/75">
-      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6">
-        {/* Logo */}
-        <a href="#" className="flex items-baseline gap-1 text-2xl font-semibold tracking-wide text-black">
-          <span>CATCH</span>
-          <span className="relative">UP<sup className="ml-0.5 text-xs align-top">®</sup></span>
-        </a>
+    <div className="pointer-events-none fixed bottom-6 left-1/2 z-50 -translate-x-1/2 w-[min(92vw,1000px)]">
+      {/* Outer frame for subtle outline */}
+      <div className="pointer-events-auto rounded-3xl border border-neutral-400/40 bg-neutral-500/20 p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.12)] backdrop-blur-md">
+        {/* Main bar */}
+        <div className="flex items-center justify-between gap-4 rounded-[20px] border border-white/10 bg-gradient-to-r from-neutral-900/90 via-neutral-800/90 to-neutral-700/90 px-3 py-2 sm:px-4 sm:py-3">
+          {/* Avatar */}
+          <div className="flex items-center gap-3">
+            <div className="h-12 w-12 overflow-hidden rounded-2xl ring-1 ring-white/15 sm:h-14 sm:w-14">
+              <Image
+                src="/images/ni1.avif"
+                alt="Avatar"
+                width={80}
+                height={80}
+                className="h-full w-full object-cover"
+                priority
+              />
+            </div>
+          </div>
 
-        {/* Nav */}
-        <nav className="hidden items-center gap-8 text-sm text-gray-800 sm:flex">
-          <a href="#" className="transition-colors hover:text-black">Home</a>
-          <a href="#" className="transition-colors hover:text-black">Studio</a>
-          <a href="#" className="transition-colors hover:text-black">Works</a>
-          <a href="#" className="transition-colors hover:text-black">Services</a>
-          <a href="#" className="transition-colors hover:text-black">Insights</a>
-        </nav>
+          {/* Nav links */}
+          <nav className="hidden flex-1 items-center justify-center gap-6 text-[11px] font-semibold uppercase tracking-wider text-gray-200 sm:flex">
+            <a href="#" className="transition-colors hover:text-white">Home</a>
+            <a href="#" className="transition-colors hover:text-white">About</a>
+            <a href="#" className="transition-colors hover:text-white">Projects</a>
+            <a href="#" className="transition-colors hover:text-white">Journal</a>
+          </nav>
 
-        {/* CTA */}
-        <a
-          href="#"
-          className="inline-flex items-center gap-2 rounded-4xl bg-emerald-400 px-4 py-1.5 text-[13px] font-medium text-black shadow-sm transition-all hover:shadow md:px-5"
-        >
-          Contact
-          <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-black text-white">
-            <Arrow size={14} />
-          </span>
-        </a>
+          {/* CTA */}
+          <a
+            href="#"
+            className="inline-flex items-center gap-3 rounded-2xl bg-white px-4 py-2 text-[13px] font-semibold text-gray-900 shadow-sm transition-transform hover:scale-[1.02] sm:px-5 sm:py-2.5"
+          >
+            Contact
+            <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-900 text-white">
+              <Arrow size={12} />
+            </span>
+          </a>
+        </div>
       </div>
-      <div className="h-px w-full bg-black/5" />
-    </header>
+    </div>
   );
 };
 

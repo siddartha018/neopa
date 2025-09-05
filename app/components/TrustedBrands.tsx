@@ -18,8 +18,8 @@ const BRANDS: BrandItem[] = [
 
 const Brand = ({ label }: BrandItem) => {
   return (
-    <div className="flex items-center gap-2 text-black/70 dark:text-white/80">
-      <span className="inline-block h-2 w-2 rounded-full bg-black/30 dark:bg-white/30" />
+    <div className="flex items-center gap-2 text-black">
+      <span className="inline-block h-2 w-2 rounded-full bg-black/30" />
       <span className="text-lg font-semibold tracking-wide lowercase">{label}</span>
     </div>
   );
@@ -29,19 +29,19 @@ const TrustedBrands = () => {
   const marqueeItems = [...BRANDS, ...BRANDS];
 
   return (
-    <section className="relative bg-neutral-50 py-10 dark:bg-neutral-950">
+    <section className="relative bg-white py-10">
       <div className="mx-auto max-w-7xl px-4">
-        <p className="mb-6 text-center text-sm font-medium text-neutral-500 dark:text-neutral-400">
+        <p className="mb-6 text-center text-sm font-medium text-black">
           Trusted by Forward-Thinking Brands
         </p>
         <div className="relative overflow-hidden">
           {/* soft gradient edges */}
           <div
-            className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-neutral-50 to-transparent dark:from-neutral-950"
+            className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent"
             aria-hidden="true"
           />
           <div
-            className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-neutral-50 to-transparent dark:from-neutral-950"
+            className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent"
             aria-hidden="true"
           />
 
@@ -68,5 +68,3 @@ const TrustedBrands = () => {
 };
 
 export default TrustedBrands;
-
-
