@@ -121,8 +121,8 @@ const WhatWeDo = () => {
           <div className="flex flex-col gap-4 md:h-[420px] md:flex-row">
             {/* Left tall content card */}
             <div className="flex-1">
-              <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-white p-2 shadow-sm">
-                <div className="h-2/3">
+              <div className="flex h-auto md:h-full flex-col overflow-hidden rounded-2xl bg-white p-2 shadow-sm">
+                <div className="h-56 md:h-2/3">
                   <ImgFill src="/images/wed4.avif" alt="Photography" />
                 </div>
                 <div className="px-2 pb-3 pt-2">
@@ -136,11 +136,11 @@ const WhatWeDo = () => {
 
             {/* Middle column: image over green CTA */}
             <div className="flex-1">
-              <div className="flex h-full flex-col gap-4">
-                <div className="flex-1 overflow-hidden rounded-2xl bg-white p-2 shadow-sm">
+              <div className="flex h-auto md:h-full flex-col gap-4">
+                <div className="h-56 md:flex-1 overflow-hidden rounded-2xl bg-white p-2 shadow-sm">
                   <ImgFill src="/images/wed5.avif" alt="Campaign montage" />
                 </div>
-                <div className="flex-1 overflow-hidden rounded-2xl bg-white p-3 shadow-sm">
+                <div className="h-44 md:flex-1 overflow-hidden rounded-2xl bg-white p-3 shadow-sm">
                   <div className="flex h-full flex-col justify-between rounded-xl bg-emerald-200 p-5">
                     <p className="text-[13px] font-medium text-gray-900">
                       Whether you&quot;re starting from scratch or looking to elevate your brand, we&apos;re here to create something impactful — together.
@@ -155,7 +155,7 @@ const WhatWeDo = () => {
 
             {/* Right tall image */}
             <div className="flex-1">
-              <div className="h-full overflow-hidden rounded-2xl bg-white p-2 shadow-sm">
+              <div className="h-64 md:h-full overflow-hidden rounded-2xl bg-white p-2 shadow-sm">
                 <ImgFill src="/images/wed6.avif" alt="Portrait collage" />
               </div>
             </div>

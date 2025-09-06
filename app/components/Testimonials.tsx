@@ -15,76 +15,90 @@ const Testimonials = () => {
     image: string;
   };
 
+  // Use some existing images from AboutUs avatars and other plausible sources
+  const avatarImages = [
+    '/images/wed1.avif',
+    '/images/wed2.avif',
+    '/images/wed3.avif',
+    '/images/wed4.avif',
+    '/images/wed5.avif',
+    '/images/wed6.avif',
+    '/images/ab1.avif',
+    '/images/ab2.avif',
+    '/images/ab3.avif',
+    '/images/ab4.avif',
+  ];
+
   const testimonials: Testimonial[] = [
     {
       id: 1,
       quote: "The team helped us go from idea to full launch in record time - and the results speak for themselves.",
       name: "Amir D.",
       title: "Operations Lead at Arteko",
-      image: "/api/placeholder/40/40"
+      image: avatarImages[0]
     },
     {
       id: 2,
       quote: "The branding work completely transformed how people see our business. It feels aligned, elevated, and true to who we are.",
       name: "Clara V.",
       title: "Co-founder at Liva",
-      image: "/api/placeholder/40/40"
+      image: avatarImages[1]
     },
     {
       id: 3,
       quote: "We've worked with other agencies before, but the attention to detail and design thinking here was on another level.",
       name: "Raymond T.",
       title: "Marketing Director at Krona",
-      image: "/api/placeholder/40/40"
+      image: avatarImages[2]
     },
     {
       id: 4,
       quote: "Our website now feels modern, fast, and effortless to use - it's made a huge difference in conversions.",
       name: "Jason M.",
       title: "Founder at Sonar",
-      image: "/api/placeholder/40/40"
+      image: avatarImages[3]
     },
     {
       id: 5,
       quote: "From strategy to launch, the process was smooth and collaborative. They challenged us, and delivered beyond expectations.",
       name: "Lena F.",
       title: "CEO at Northby",
-      image: "/api/placeholder/40/40"
+      image: avatarImages[4]
     },
     {
       id: 6,
       quote: "They didn't just give us a logo - they gave us an identity we're proud of. Every detail was intentional, and the results speak for themselves.",
       name: "M. Johnson",
       title: "Creative Director at Bloom Agency",
-      image: "/api/placeholder/40/40"
+      image: avatarImages[5]
     },
     {
       id: 7,
       quote: "Our new site looks amazing and works even better. The design is clean, intuitive, and exactly what we needed to scale.",
       name: "Leo H.",
       title: "Product Manager at Northbyte",
-      image: "/api/placeholder/40/40"
+      image: avatarImages[6]
     },
     {
       id: 8,
       quote: "The dev team was fast, flexible, and spot-on. They built a custom site that performs beautifully across all platforms.",
       name: "Maya K.",
       title: "Founder of Tenq Studio",
-      image: "/api/placeholder/40/40"
+      image: avatarImages[7]
     },
     {
       id: 9,
       quote: "The photography they delivered elevated our brand instantly - high quality, on-brand, and ready for every channel.",
       name: "Daniel S.",
       title: "Marketing Lead at Arteko Home",
-      image: "/api/placeholder/40/40"
+      image: avatarImages[8]
     },
     {
       id: 10,
       quote: "They nailed our visual identity and photography. Every image felt intentional and beautifully on-brand.",
       name: "Zoe N.",
       title: "Creative Lead at Velto",
-      image: "/api/placeholder/40/40"
+      image: avatarImages[9]
     }
   ];
 
@@ -133,11 +147,12 @@ const Testimonials = () => {
       </div>
       <div className="flex items-center gap-2 mt-3">
         <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
-          <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-            <span className="text-gray-600 text-xs font-medium">
-              {testimonial.name.charAt(0)}
-            </span>
-          </div>
+          <img
+            src={testimonial.image}
+            alt={testimonial.name}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
         </div>
         <div>
           <p className="font-semibold text-xs text-gray-900">{testimonial.name}</p>

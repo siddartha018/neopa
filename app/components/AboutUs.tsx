@@ -58,10 +58,42 @@ const CoreValues = () => (
 // );
 
 const AvatarStat = () => (
-  <div className="rounded-2xl bg-white p-4 shadow-sm">
-    <div className="mb-3 h-16 w-full rounded-xl bg-gray-200" />
-    <p className="text-3xl font-extrabold text-black">4.9★</p>
-    <p className="text-[12px] text-gray-600">Client Satisfaction on Average</p>
+  <div className="relative h-56 md:h-full overflow-hidden rounded-2xl bg-black p-4 text-white shadow-sm">
+    <div className="flex h-full flex-col justify-between">
+      <div className="mb-2 flex flex-wrap items-center gap-2">
+        {[
+          '/images/wed1.avif',
+          '/images/wed2.avif',
+          '/images/wed3.avif',
+          '/images/wed4.avif',
+          '/images/wed5.avif',
+          '/images/wed6.avif',
+          '/images/ab1.avif',
+          '/images/ab2.avif',
+          '/images/ab3.avif',
+          '/images/ab4.avif',
+        ].map((src, idx) => (
+          <span
+            key={idx}
+            className="inline-block h-8 w-8 rounded-full ring-1 ring-white/10"
+            style={{
+              backgroundImage: `url(${src})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          />
+        ))}
+      </div>
+      <div>
+        <div className="flex items-baseline gap-2">
+          <p className="text-4xl font-extrabold">4.9</p>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-yellow-300">
+            <path d="M12 2l2.92 5.92L21 9.17l-4.5 4.39L17.84 21 12 17.77 6.16 21l1.34-7.44L3 9.17l6.08-1.25L12 2z" fill="currentColor" />
+          </svg>
+        </div>
+        <p className="mt-1 text-[12px] text-white/80">Client Satisfaction on Average</p>
+      </div>
+    </div>
   </div>
 );
 
@@ -102,7 +134,7 @@ const AboutUs = () => {
         <div className="grid grid-cols-12 gap-4">
           {/* Row 1 */}
           <div className="col-span-12 md:col-span-4">
-            <div className="relative h-full overflow-hidden rounded-2xl bg-white p-2 shadow-sm">
+            <div className="relative h-56 md:h-full overflow-hidden rounded-2xl bg-white p-2 shadow-sm">
               <div
                 className="absolute inset-0 rounded-xl"
                 style={{
@@ -158,7 +190,7 @@ const AboutUs = () => {
           {/* Row 3 */}
           <div className="col-span-12 md:col-span-4"><AvatarStat /></div>
           <div className="col-span-12 md:col-span-8">
-            <div className="relative h-full overflow-hidden rounded-2xl bg-white p-2 shadow-sm">
+            <div className="relative h-56 md:h-full overflow-hidden rounded-2xl bg-white p-2 shadow-sm">
               <div
                 className="absolute inset-0 rounded-xl"
                 style={{
@@ -168,8 +200,15 @@ const AboutUs = () => {
                   zIndex: 0,
                 }}
               />
-              <div className="relative z-10 flex flex-col items-start justify-end h-full p-4">
-                {/* You can add content here if needed, or leave empty for just the image */}
+              <div className="absolute inset-0 z-10 rounded-xl bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+              <div className="relative z-20 flex h-full flex-col justify-between p-4">
+                <div>
+                  <p className="text-4xl font-extrabold text-white">150+</p>
+                  <p className="text-[12px] text-white/90">Projects Delivered with Precision</p>
+                </div>
+                <p className="max-w-md text-[12px] leading-relaxed text-white/80">
+                  Successfully completed websites, campaigns, and brand rollouts across industries.
+                </p>
               </div>
             </div>
           </div>

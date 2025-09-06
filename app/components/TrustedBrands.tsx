@@ -3,25 +3,30 @@
 import React from 'react';
 
 type BrandItem = {
-  label: string;
+  src: string;
+  alt?: string;
 };
 
 const BRANDS: BrandItem[] = [
-  //need to add svgs or images 
-  { label: 'sonar' },
-  { label: 'liva' },
-  { label: 'krona' },
-  { label: 'velto' },
-  { label: 'sonar' },
-  { label: 'lumo' },
-  { label: 'kilo' },
+  { src: '/images/br1.png', alt: 'Brand 1' },
+  { src: '/images/br2.webp', alt: 'Brand 2' },
+  { src: '/images/br3.png', alt: 'Brand 3' },
+  { src: '/images/br4.webp', alt: 'Brand 4' },
+  { src: '/images/br5.png', alt: 'Brand 5' },
+  { src: '/images/br6.webp', alt: 'Brand 6' },
 ];
 
-const Brand = ({ label }: BrandItem) => {
+const Brand = ({ src, alt }: BrandItem) => {
   return (
-    <div className="flex items-center gap-2 text-black">
-      <span className="inline-block h-2 w-2 rounded-full bg-black/30" />
-      <span className="text-lg font-semibold tracking-wide lowercase">{label}</span>
+    <div className="flex items-center text-black">
+      <span className="inline-block h-16 w-40">
+        <img
+          src={src}
+          alt={alt || 'Brand logo'}
+          className="h-16 w-40 object-contain"
+          loading="lazy"
+        />
+      </span>
     </div>
   );
 };
@@ -56,9 +61,9 @@ const TrustedBrands = () => {
                 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
             }}
           >
-            <div className="flex w-max gap-16 pr-16 animate-[marquee-ltr_32s_linear_infinite] motion-reduce:animate-none will-change-transform">
+            <div className="flex w-max gap-20 pr-20 animate-[marquee-ltr_32s_linear_infinite] motion-reduce:animate-none will-change-transform">
               {marqueeItems.map((item, index) => (
-                <Brand key={`${item.label}-${index}`} label={item.label} />
+                <Brand key={`${item.src}-${index}`} src={item.src} alt={item.alt} />
               ))}
             </div>
           </div>
