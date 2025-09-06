@@ -43,7 +43,7 @@ const Hero = () => {
       },
       {
         id: 'hero-3',
-        src: '/images/hero3.avif',
+        src: '/images/hero4.avif',
         alt: 'Vibrant editorial look',
         eyebrow: 'Visual Lab',
         titleLine1: 'Design-led',
