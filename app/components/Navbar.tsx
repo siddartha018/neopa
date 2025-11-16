@@ -21,27 +21,26 @@ const Arrow = ({ size = 12 }: { size?: number }) => (
 
 const Navbar = () => {
   return (
-    <div className="pointer-events-none fixed bottom-6 left-1/2 z-50 -translate-x-1/2 w-[min(92vw,1000px)]">
+    <div className="pointer-events-none fixed top-4 left-1/2 z-50 -translate-x-1/2 w-[min(92vw,1000px)]">
       {/* Outer frame for subtle outline */}
       <div className="pointer-events-auto rounded-3xl border border-neutral-400/40 bg-neutral-500/20 p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.12)] backdrop-blur-md">
         {/* Main bar */}
         <div className="flex items-center justify-between gap-4 rounded-[20px] border border-white/10 bg-gradient-to-r from-neutral-900/90 via-neutral-800/90 to-neutral-700/90 px-3 py-2 sm:px-4 sm:py-3">
           {/* Avatar */}
           <div className="flex items-center gap-3">
-            <div className="h-12 w-12 overflow-hidden rounded-2xl ring-1 ring-white/15 sm:h-14 sm:w-14">
+            <div className="h-12 w-22 overflow-hidden rounded-2xl ">
               <Image
-                src="/images/ni1.avif"
+                src="/images/neopa.avif"
                 alt="Avatar"
                 width={80}
                 height={80}
                 className="h-full w-full object-cover"
-                priority
               />
             </div>
           </div>
 
           {/* Nav links */}
-          <nav className="hidden flex-1 items-center justify-center gap-6 text-[11px] font-semibold uppercase tracking-wider text-gray-200 sm:flex">
+          <nav className="hidden flex-1 items-center justify-center gap-6 typography-eyebrow-white sm:flex">
             <a href="#" className="transition-colors hover:text-white">Home</a>
             <a href="#" className="transition-colors hover:text-white">About</a>
             <a href="#" className="transition-colors hover:text-white">Projects</a>
@@ -51,7 +50,7 @@ const Navbar = () => {
           {/* CTA */}
           <a
             href="#"
-            className="inline-flex items-center gap-3 rounded-2xl bg-white px-4 py-2 text-[13px] font-semibold text-gray-900 shadow-sm transition-transform hover:scale-[1.02] sm:px-5 sm:py-2.5"
+            className="inline-flex items-center gap-3 rounded-2xl bg-white px-4 py-2 typography-button text-gray-900 shadow-sm transition-transform hover:scale-[1.02] sm:px-5 sm:py-2.5"
           >
             Contact
             <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-900 text-white">

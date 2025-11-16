@@ -90,15 +90,15 @@ const Hero = () => {
         <div className="absolute inset-0">
           <div className="flex h-full w-full flex-col justify-between p-6 sm:p-10 md:p-14 lg:p-16">
             {/* top-left small dot + eyebrow */}
-            <div className="flex items-center gap-3 text-white/80">
+            <div className="flex items-center gap-3">
               <span className="h-2 w-2 rounded-full bg-white/70" />
-              <span className="text-sm">{selected.eyebrow}</span>
+              <span className="typography-small-white-80">{selected.eyebrow}</span>
             </div>
 
             <div className="grid grid-cols-1 items-end gap-6 md:grid-cols-12">
               {/* Headline */}
-              <div className="md:col-span-7 text-white">
-                <h1 className="text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
+              <div className="md:col-span-7">
+                <h1 className="typography-display-white">
                   {selected.titleLine1}
                   <br />
                   {selected.titleLine2}
@@ -106,12 +106,12 @@ const Hero = () => {
               </div>
 
               {/* Right subtitle and trust */}
-              <div className="md:col-span-5 md:ml-auto flex flex-col items-start md:items-end gap-4 text-white/90">
-                <p className="max-w-md text-sm sm:text-base text-right md:text-right">
+              <div className="md:col-span-5 md:ml-auto flex flex-col items-start md:items-end gap-4">
+                <p className="max-w-md typography-body-white-90 text-right">
                   {selected.subtitle}
                 </p>
-                <div className="flex items-center gap-6 text-sm">
-                  <span className="text-white/90">{selected.trustedBy}</span>
+                <div className="flex items-center gap-6">
+                  <span className="typography-small-white-90">{selected.trustedBy}</span>
                   <div className="flex items-center gap-4">
                     <a href="#" aria-label="Instagram" className="transition-opacity hover:opacity-80">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-white">

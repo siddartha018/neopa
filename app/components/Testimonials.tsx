@@ -1,265 +1,124 @@
-'use client';
-
-import React, { useRef, useState } from 'react';
-import { motion, useAnimationFrame, useMotionValue } from 'framer-motion';
+import React from 'react';
 
 const Testimonials = () => {
-  const [isFirstRowHovered, setIsFirstRowHovered] = useState(false);
-  const [isSecondRowHovered, setIsSecondRowHovered] = useState(false);
-
-  type Testimonial = {
-    id: number;
-    quote: string;
-    name: string;
-    title: string;
-    image: string;
-  };
-
-  // Use some existing images from AboutUs avatars and other plausible sources
-  const avatarImages = [
-    '/images/wed1.avif',
-    '/images/wed2.avif',
-    '/images/wed3.avif',
-    '/images/wed4.avif',
-    '/images/wed5.avif',
-    '/images/wed6.avif',
-    '/images/ab1.avif',
-    '/images/ab2.avif',
-    '/images/ab3.avif',
-    '/images/ab4.avif',
+  const testimonials = [
+    {
+      quote: 'Best Quality That Boosted Our Brand',
+      body: 'The photos were sharp, clean, and made our website look premium.',
+      name: 'Henki',
+      title: 'Artist',
+      avatar: '/images/wed1.avif',
+    },
+    {
+      quote: 'Captured the Essence of Our Business',
+      body: 'Each image told a story and aligned perfectly with our vision.',
+      name: 'Leopas',
+      title: 'Artist',
+      avatar: '/images/wed2.avif',
+    },
+    {
+      quote: 'Exactly What Our Website Needed',
+      body: 'Modern, high-quality visuals that made a strong first impression.',
+      name: 'Wedly',
+      title: 'CEO Founder',
+      avatar: '/images/wed3.avif',
+    },
   ];
 
-  const testimonials: Testimonial[] = [
-    {
-      id: 1,
-      quote: "The team helped us go from idea to full launch in record time - and the results speak for themselves.",
-      name: "Amir D.",
-      title: "Operations Lead at Arteko",
-      image: avatarImages[0]
-    },
-    {
-      id: 2,
-      quote: "The branding work completely transformed how people see our business. It feels aligned, elevated, and true to who we are.",
-      name: "Clara V.",
-      title: "Co-founder at Liva",
-      image: avatarImages[1]
-    },
-    {
-      id: 3,
-      quote: "We've worked with other agencies before, but the attention to detail and design thinking here was on another level.",
-      name: "Raymond T.",
-      title: "Marketing Director at Krona",
-      image: avatarImages[2]
-    },
-    {
-      id: 4,
-      quote: "Our website now feels modern, fast, and effortless to use - it's made a huge difference in conversions.",
-      name: "Jason M.",
-      title: "Founder at Sonar",
-      image: avatarImages[3]
-    },
-    {
-      id: 5,
-      quote: "From strategy to launch, the process was smooth and collaborative. They challenged us, and delivered beyond expectations.",
-      name: "Lena F.",
-      title: "CEO at Northby",
-      image: avatarImages[4]
-    },
-    {
-      id: 6,
-      quote: "They didn't just give us a logo - they gave us an identity we're proud of. Every detail was intentional, and the results speak for themselves.",
-      name: "M. Johnson",
-      title: "Creative Director at Bloom Agency",
-      image: avatarImages[5]
-    },
-    {
-      id: 7,
-      quote: "Our new site looks amazing and works even better. The design is clean, intuitive, and exactly what we needed to scale.",
-      name: "Leo H.",
-      title: "Product Manager at Northbyte",
-      image: avatarImages[6]
-    },
-    {
-      id: 8,
-      quote: "The dev team was fast, flexible, and spot-on. They built a custom site that performs beautifully across all platforms.",
-      name: "Maya K.",
-      title: "Founder of Tenq Studio",
-      image: avatarImages[7]
-    },
-    {
-      id: 9,
-      quote: "The photography they delivered elevated our brand instantly - high quality, on-brand, and ready for every channel.",
-      name: "Daniel S.",
-      title: "Marketing Lead at Arteko Home",
-      image: avatarImages[8]
-    },
-    {
-      id: 10,
-      quote: "They nailed our visual identity and photography. Every image felt intentional and beautifully on-brand.",
-      name: "Zoe N.",
-      title: "Creative Lead at Velto",
-      image: avatarImages[9]
-    }
-  ];
-
-  const firstRow = testimonials.slice(0, 5);
-  const secondRow = testimonials.slice(5, 10);
-
-  const StarRating = () => (
-    <div className="flex gap-1 mb-2">
-      {[...Array(5)].map((_, i) => (
-        <svg
-          key={i}
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="text-black"
-        >
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-        </svg>
-      ))}
-    </div>
-  );
-
-  // Card width is very small, and quote is styled to wrap in 2-3 lines
-  const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
-    <div
-      className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-300 h-[220px] w-[180px] sm:w-[200px] flex-shrink-0 flex flex-col justify-between"
-      style={{ minWidth: 0, maxWidth: '200px' }}
+  const StarIcon = ({ filled = true, className = '' }: { filled?: boolean; className?: string }) => (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill={filled ? 'currentColor' : 'none'}
+      stroke="currentColor"
+      strokeWidth="1.5"
+      className={className}
     >
-      <div>
-        <StarRating />
-        <p
-          className="text-gray-700 text-xs leading-snug font-medium break-words line-clamp-3"
-          style={{
-            display: '-webkit-box',
-            WebkitLineClamp: 3,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-            minHeight: '3.5em',
-            maxHeight: '4.5em',
-            wordBreak: 'break-word',
-          }}
-        >
-          {testimonial.quote}
-        </p>
-      </div>
-      <div className="flex items-center gap-2 mt-3">
-        <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
-          <img
-            src={testimonial.image}
-            alt={testimonial.name}
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
-        <div>
-          <p className="font-semibold text-xs text-gray-900">{testimonial.name}</p>
-          <p className="text-[10px] text-gray-600">{testimonial.title}</p>
-        </div>
-      </div>
-    </div>
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+    </svg>
   );
-
-  // Seamless marquee row that duplicates content and loops without gaps
-  const MarqueeRow = ({
-    items,
-    direction,
-    paused,
-  }: {
-    items: Testimonial[];
-    direction: 'left' | 'right';
-    paused: boolean;
-  }) => {
-    const x = useMotionValue(0);
-    const containerRef = useRef<HTMLDivElement | null>(null);
-    const blockRef = useRef<HTMLDivElement | null>(null);
-
-    // Animation frame loop
-    useAnimationFrame((_, delta) => {
-      if (paused) return;
-      const blockWidth = blockRef.current?.offsetWidth || 0;
-      if (blockWidth === 0) return;
-
-      const pixelsPerSecond = 60; // speed
-      const moveBy = (pixelsPerSecond * (delta / 1000)) * (direction === 'left' ? -1 : 1);
-      let next = x.get() + moveBy;
-
-      // Wrap position to create seamless loop without gaps
-      if (direction === 'left') {
-        if (next <= -blockWidth) {
-          next += blockWidth;
-        }
-      } else {
-        if (next >= 0) {
-          next -= blockWidth;
-        }
-      }
-      x.set(next);
-    });
-
-    return (
-      <div className="overflow-hidden" ref={containerRef}>
-        <motion.div className="flex" style={{ x }}>
-          <div ref={blockRef} className="flex gap-3">
-            {items.map((testimonial, index) => (
-              <TestimonialCard key={`a-${index}`} testimonial={testimonial} />
-            ))}
-          </div>
-          {/* Duplicate for seamless loop; no outer gap to avoid seam */}
-          <div className="flex gap-3" aria-hidden="true">
-            {items.map((testimonial, index) => (
-              <TestimonialCard key={`b-${index}`} testimonial={testimonial} />
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    );
-  };
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="w-full bg-gray-50 py-16 md:py-24">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Header Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          {/* Left Side - Header */}
-          <div>
-            <div className="flex items-center mb-4">
-              <div className="w-12 h-px bg-gray-400 mr-4"></div>
-              <span className="text-sm font-medium text-gray-600 uppercase tracking-wider">
-                TESTIMONIALS
-              </span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-              What Our Clients Say
-            </h2>
+        <div className="text-center mb-12 md:mb-16">
+          {/* Testimonials Label */}
+          <div className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-gray-50 px-4 py-1.5 mb-6">
+            <span className="typography-eyebrow">
+              Testimonials
+            </span>
           </div>
 
-          {/* Right Side - Description */}
-          <div className="flex flex-col justify-center">
-            <p className="text-gray-600 text-lg leading-relaxed">
-              Real results. Lasting partnerships. Here&quot;s what our collaborators have to say about working with us.
-            </p>
-          </div>
+          {/* Main Heading */}
+          <h2 className="typography-heading mb-4">
+            Hear from Our User
+          </h2>
+
+          {/* Subheading */}
+          <p className="typography-body max-w-2xl mx-auto">
+            Read how our users have achieved success
+          </p>
         </div>
 
-        {/* Animated Testimonial Rows */}
-        <div className="space-y-6">
-          {/* First Row - Moves Left */}
-          <div
-            onMouseEnter={() => setIsFirstRowHovered(true)}
-            onMouseLeave={() => setIsFirstRowHovered(false)}
-          >
-            <MarqueeRow items={firstRow} direction="left" paused={isFirstRowHovered} />
-          </div>
+        {/* Testimonial Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-6 md:p-8"
+            >
+              {/* Quote */}
+              <h3 className="typography-title mb-3">
+                &quot;{testimonial.quote}&quot;
+              </h3>
 
-          {/* Second Row - Moves Right */}
-          <div
-            onMouseEnter={() => setIsSecondRowHovered(true)}
-            onMouseLeave={() => setIsSecondRowHovered(false)}
-          >
-            <MarqueeRow items={secondRow} direction="right" paused={isSecondRowHovered} />
+              {/* Body Text */}
+              <p className="typography-body mb-6">
+                {testimonial.body}
+              </p>
+
+              {/* User Info */}
+              <div className="flex items-center gap-3">
+                {/* Avatar */}
+                <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-gray-200">
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Name and Title */}
+                <div className="flex-1">
+                  <p className="typography-title">{testimonial.name}</p>
+                  <p className="typography-small">{testimonial.title}</p>
+                </div>
+
+                {/* Rating Stars */}
+                <div className="flex gap-1 text-orange-500">
+                  {[...Array(4)].map((_, i) => (
+                    <StarIcon key={i} filled={true} className="text-orange-500" />
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Trust Indicator */}
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2">
+            <span className="typography-body text-gray-900 font-medium">
+              Trusted by 20K+ Clients
+            </span>
+            <div className="flex gap-1 text-gray-900">
+              {[...Array(4)].map((_, i) => (
+                <StarIcon key={i} filled={true} className="text-gray-900" />
+              ))}
+            </div>
           </div>
         </div>
       </div>
