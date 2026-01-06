@@ -8,7 +8,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-jakarta);
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-jakarta);
+  --font-grotesk: var(--font-grotesk);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,13 +24,43 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-jakarta), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Font Family Classes - Easy to update globally */
+/* Update these variables in layout.tsx to change fonts site-wide */
+.font-display {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.font-body {
+  font-family: var(--font-jakarta), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.font-sans {
+  font-family: var(--font-jakarta), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.font-grotesk {
+  font-family: var(--font-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 /* Typography Classes */
+/* 
+  FONT SYSTEM GUIDE:
+  - Display fonts (headings): Playfair Display (elegant serif)
+  - Body fonts: Plus Jakarta Sans (modern sans-serif)
+  - Grotesk font: Space Grotesk (geometric sans-serif)
+  
+  To change fonts globally:
+  1. Update font imports in app/layout.tsx
+  2. Update CSS variables in @theme inline section above
+  3. All typography classes will automatically use the new fonts
+*/
 
 /* Display/Hero Heading - Largest text for hero sections */
 .typography-display {
+  font-family: var(--font-playfair), Georgia, serif;
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   font-weight: 700;
   line-height: 1.1;
@@ -37,6 +70,7 @@ body {
 
 /* Section Heading - Main section titles */
 .typography-heading {
+  font-family: var(--font-playfair), Georgia, serif;
   font-size: clamp(1.875rem, 4vw, 3rem);
   font-weight: 600;
   line-height: 1.2;
@@ -46,6 +80,7 @@ body {
 
 /* Card Title - Titles for cards and articles */
 .typography-title {
+  font-family: var(--font-jakarta), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: clamp(1.125rem, 2vw, 1.25rem);
   font-weight: 600;
   line-height: 1.3;
@@ -54,6 +89,7 @@ body {
 
 /* Body Text - Main content text */
 .typography-body {
+  font-family: var(--font-jakarta), sans-serif;
   font-size: clamp(0.875rem, 1.5vw, 1.125rem);
   font-weight: 400;
   line-height: 1.6;
@@ -107,6 +143,7 @@ body {
 
 /* Display/Hero Heading - White variant */
 .typography-display-white {
+  font-family: var(--font-playfair), Georgia, serif;
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   font-weight: 700;
   line-height: 1.1;

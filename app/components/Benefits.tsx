@@ -3,24 +3,24 @@ import React from 'react';
 const benefits = [
   {
     id: 1,
-    icon: '☀️',
-    title: 'Tailored to Your Vision',
-    description: 'Custom approach to every project your story, your style.',
-    tag: 'Visionary Image Creation',
+    icon: '👥',
+    title: 'Start with people, not platforms',
+    description: 'We study your audience—language, motivations, friction points, and cultural context before designing media.',
+    tag: 'People-First',
   },
   {
     id: 2,
-    icon: '🎯',
-    title: 'Shot with Top Gear',
-    description: 'Utilizing top-tier equipment for exceptional photos.',
-    tag: 'High-Quality Imagery',
+    icon: '🎨',
+    title: 'Connect creativity to performance',
+    description: 'Strategy, creative, and performance work together—not in silos. Media that performs and connects.',
+    tag: 'Integrated Approach',
   },
   {
     id: 3,
-    icon: '📌',
-    title: 'Editing Included',
-    description: 'Every image is meticulously edited to align with your unique vision.',
-    tag: 'Professional editing',
+    icon: '📈',
+    title: 'Compound value over time',
+    description: 'We build media systems that scale, not short-term spikes. Long-term growth through sustainable strategy.',
+    tag: 'Long-Term Growth',
   },
 ];
 
@@ -37,10 +37,13 @@ const Benefits = () => {
           </div>
 
           <h2 className="typography-heading mb-4">
-            Why work with me?
+            We don&apos;t run campaigns.
+            <br />
+            We build media systems.
           </h2>
           <p className="max-w-2xl mx-auto typography-body">
-            Great photography is an experience rooted in collaboration, trust, and creativity.
+            Systems that start with people, connect creativity to performance, and compound value over time. 
+            Inspired by the human-centered thinking of Social People Agency and the executional depth of Techorses.
           </p>
         </div>
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Services = () => {
   return (
-    <section className="w-full bg-gray-50 py-20 md:py-28">
+    <section id="services" className="w-full bg-gray-50 py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-6">
         {/* Top label + heading */}
         <div className="text-center mb-16">
@@ -13,11 +13,11 @@ const Services = () => {
           </div>
 
           <h2 className="typography-heading mb-4">
-            How can I assist you today?
+            What We Do (And Why It Works)
           </h2>
           <p className="max-w-2xl mx-auto typography-body">
-            I transform your ideas into captivating images, focusing on
-            creativity and expert use of light.
+            We build media systems, not one-off campaigns. Our work blends audience insight, brand narrative, 
+            creative execution, performance amplification, and measurement loops.
           </p>
         </div>
 
@@ -25,18 +25,17 @@ const Services = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
           {/* Left column: portrait + gear */}
           <div className="space-y-6">
-            {/* Portrait Photography card - image left, text right */}
+            {/* Audience & Cultural Insight card */}
             <article className="bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden">
               <div className="flex flex-col md:flex-row gap-6 p-6 md:p-8 md:h-[260px] lg:h-[260px]">
                 {/* Image on left */}
                 <div className="relative md:w-[210px] md:h-full overflow-hidden rounded-2xl bg-gray-100 flex-shrink-0">
                   <img
                     src="/images/hero2.avif"
-                    alt="Portrait Photography"
+                    alt="Audience & Cultural Insight"
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
-                  {/* subtle fade at bottom */}
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/80 to-transparent" />
                 </div>
 
@@ -44,22 +43,21 @@ const Services = () => {
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-3 text-gray-700">
                     <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 text-xs">
-                      💬
+                      👥
                     </span>
                     <span className="typography-eyebrow">
-                      Portrait
+                      Insight
                     </span>
                   </div>
                   <h3 className="typography-title mb-2">
-                    Portrait Photography
+                    Audience & Cultural Insight
                   </h3>
                   <p className="typography-body mb-4">
-                    For individuals, couples, and professionals.
+                    Understanding people before platforms. Deep understanding of audience behavior, language, and context.
                   </p>
 
-                  {/* tags */}
                   <div className="flex flex-wrap gap-2">
-                    {['Studio or outdoor', 'Natural editing', 'High-res files.'].map(
+                    {['Behavior analysis', 'Cultural context', 'Clear direction'].map(
                       (tag) => (
                         <span
                           key={tag}
@@ -74,28 +72,28 @@ const Services = () => {
               </div>
             </article>
 
-            {/* Shot with Top Gear card - text left, image right */}
+            {/* Brand & Content Strategy card */}
             <article className="bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden">
               <div className="flex flex-col md:flex-row gap-6 p-6 md:p-4 md:h-[200px] lg:h-[190px]">
                 {/* Text content on left */}
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-3 text-gray-700">
                     <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 text-xs">
-                      📷
+                      📝
                     </span>
                     <span className="typography-eyebrow">
-                      Gear
+                      Strategy
                     </span>
                   </div>
                   <h3 className="typography-title mb-2">
-                    Shot with Top Gear
+                    Brand & Content Strategy
                   </h3>
                   <p className="typography-body mb-4">
-                    Using premium equipment for stunning images.
+                    Narrative design aligned to business objectives. Define what to say, why it matters, and how it scales.
                   </p>
 
                   <div className="flex flex-wrap gap-2">
-                    {['Lighting', 'Direction', 'Editing'].map((tag) => (
+                    {['Narrative design', 'Scalable framework', 'Consistency'].map((tag) => (
                       <span
                         key={tag}
                         className="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 typography-badge"
@@ -110,7 +108,7 @@ const Services = () => {
                 <div className="relative md:w-[210px] md:h-full overflow-hidden rounded-2xl bg-gray-100 flex-shrink-0">
                   <img
                     src="/images/cube.avif"
-                    alt="Camera gear"
+                    alt="Brand Strategy"
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
@@ -136,22 +134,22 @@ const Services = () => {
                 <div className="flex flex-col items-center gap-4">
                   <div className="flex items-center gap-2 mb-3 text-gray-700">
                     <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 text-xs">
-                      💬
+                      🎨
                     </span>
                     <span className="typography-eyebrow">
-                      Branding
+                      Creative
                     </span>
                   </div>
                   <h3 className="typography-title mb-2">
-                    Branding & Lifestyle Photography
+                    Creative Production
                   </h3>
                   <p className="typography-body max-w-sm">
-                    Custom visuals that tell your story.
+                    Content designed for how people actually consume media. Higher engagement, stronger recall, better performance.
                   </p>
                   
                   {/* tags centered */}
                   <div className="flex flex-wrap gap-2 justify-center">
-                    {['On-location', 'Tailored brand styling', 'Fast delivery.'].map(
+                    {['Real behavior', 'Higher engagement', 'Better performance'].map(
                       (tag) => (
                         <span
                           key={tag}
@@ -168,23 +166,23 @@ const Services = () => {
 
             {/* Two small stats cards below the large card */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* 150+ Client card */}
+              {/* Paid & Performance Media card */}
               <div className="bg-white rounded-3xl shadow-sm p-6 text-center">
                 <p className="text-2xl md:text-3xl font-semibold text-gray-900 mb-1">
-                  150+
+                  Paid & Performance
                 </p>
-                <p className="typography-eyebrow">
-                  Clients
+                <p className="typography-body text-sm">
+                  Amplification with intent, not guesswork
                 </p>
               </div>
 
-              {/* 100+ Photoshoot card */}
+              {/* Analytics & Optimization card */}
               <div className="bg-white rounded-3xl shadow-sm p-6 text-center">
                 <p className="text-2xl md:text-3xl font-semibold text-gray-900 mb-1">
-                  100+
+                  Analytics & Optimization
                 </p>
-                <p className="typography-eyebrow">
-                  Photoshoots
+                <p className="typography-body text-sm">
+                  Learning loops that improve outcomes
                 </p>
               </div>
             </div>

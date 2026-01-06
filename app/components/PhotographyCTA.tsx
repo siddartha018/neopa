@@ -20,25 +20,42 @@ const PhotographyCTA = () => {
   const duplicatedImages = [...marqueeImages, ...marqueeImages];
 
   return (
-    <section className="w-full bg-white py-16 md:py-24">
+    <section id="contact" className="w-full bg-white py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-6">
         {/* Top pill button */}
         <div className="text-center mb-8">
-          <button className="inline-flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors px-5 py-2 mb-6">
-            <span className="typography-small font-medium text-gray-700">
-              Initiate Your Journey
+          <div className="inline-flex items-center justify-center rounded-full bg-gray-100 px-5 py-2 mb-6">
+            <span className="typography-eyebrow">
+              Work With Us
             </span>
-          </button>
+          </div>
         </div>
 
         {/* Main heading */}
         <div className="text-center mb-6">
           <h2 className="typography-display mb-4">
-            Great photos begin with a conversation
+            Let&apos;s Build Something That Lasts
           </h2>
-          <p className="max-w-2xl mx-auto typography-body">
-            Contact us to discuss how we can bring your vision to life with meaningful photography.
+          <p className="max-w-2xl mx-auto typography-body mb-8">
+            We are best for teams who want a strategic partner, value clarity and accountability, 
+            and are building for long-term growth.
           </p>
+          
+          {/* Who we work with */}
+          <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-gray-50 rounded-xl p-6">
+              <p className="typography-title mb-2">Brands</p>
+              <p className="typography-small">Building community, not just reach</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-6">
+              <p className="typography-title mb-2">Founders</p>
+              <p className="typography-small">Preparing for sustainable growth</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-6">
+              <p className="typography-title mb-2">Companies</p>
+              <p className="typography-small">Tired of disconnected agencies</p>
+            </div>
+          </div>
         </div>
 
         {/* Marquee of images */}
@@ -67,26 +84,18 @@ const PhotographyCTA = () => {
 
         {/* CTA Button */}
         <div className="text-center mb-6">
-          <button className="inline-flex items-center justify-center rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors px-8 py-4 text-white typography-button">
-            Get In Touch
-          </button>
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center rounded-xl bg-gray-900 hover:bg-gray-800 transition-colors px-8 py-4 text-white typography-button"
+          >
+            Start a Conversation
+          </a>
         </div>
 
         {/* Trust statement */}
         <div className="text-center">
-          <div className="flex items-center justify-center gap-1 mb-2">
-            {[...Array(4)].map((_, i) => (
-              <svg
-                key={i}
-                className="w-5 h-5 text-gray-900 fill-current"
-                viewBox="0 0 20 20"
-              >
-                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-              </svg>
-            ))}
-          </div>
-          <p className="typography-small">
-            Trusted by 25,000+ clients
+          <p className="typography-body text-gray-600">
+            A people-first media agency delivering strategy, storytelling, and scalable growth.
           </p>
         </div>
       </div>

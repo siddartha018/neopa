@@ -34,7 +34,6 @@ const Tyshi: React.FC<TyshiProps> = ({
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const visibleCount = 3;
   const total = items.length;
 
   // Infinite loop helpers

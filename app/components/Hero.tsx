@@ -22,35 +22,35 @@ const Hero = () => {
       {
         id: 'hero-1',
         src: '/images/hero1.avif',
-        alt: 'Creative photography helmet blur',
-        eyebrow: 'Creative Agency',
-        titleLine1: 'Professional Creative',
-        titleLine2: 'Photography',
+        alt: 'Media agency strategy',
+        eyebrow: 'Media Agency',
+        titleLine1: 'We Build Media People Care About',
+        titleLine2: '— and Businesses Grow From.',
         subtitle:
-          'Contemporary architecture, prime locations, and upscale home design to inspire your next journey.',
-        trustedBy: 'Trusted by 25,000+ clients',
+          'A people-first media agency combining cultural insight, strategy, and performance to turn attention into long-term growth.',
+        trustedBy: 'Trusted by brands building community',
       },
       {
         id: 'hero-2',
         src: '/images/hero2.avif',
-        alt: 'Abstract portrait with neon lighting',
-        eyebrow: 'Brand Studio',
-        titleLine1: 'Bold Brands,',
-        titleLine2: 'Brighter Stories',
+        alt: 'Strategy meets culture',
+        eyebrow: 'Where Strategy Meets Culture',
+        titleLine1: 'Media Built for People.',
+        titleLine2: 'Growth Built to Last.',
         subtitle:
-          'From identity systems to launch campaigns, we craft narratives that resonate and convert.',
-        trustedBy: 'Trusted by 10,000+ founders',
+          'Strategy, culture, and performance—working as one system. We help brands stay human while scaling intelligently.',
+        trustedBy: 'Trusted by founders preparing for growth',
       },
       {
         id: 'hero-3',
         src: '/images/hero4.avif',
-        alt: 'Vibrant editorial look',
-        eyebrow: 'Visual Lab',
-        titleLine1: 'Design-led',
-        titleLine2: 'Experiences',
+        alt: 'People-first media',
+        eyebrow: 'People-First Media',
+        titleLine1: 'Algorithms Change.',
+        titleLine2: 'People Don\'t.',
         subtitle:
-          'Immersive visuals and UI that feel effortless and perform across every device.',
-        trustedBy: 'Trusted by 1,200+ teams',
+          'We build media around human behavior—not hacks. Media that earns attention, builds trust, and drives meaningful growth.',
+        trustedBy: 'Trusted by companies tired of disconnected agencies',
       },
     ],
     []
@@ -72,7 +72,7 @@ const Hero = () => {
   const selected = slides[selectedIndex];
   const stacked = slides.filter((_, i) => i !== selectedIndex);
   return (
-    <section className="flex items-center justify-center py-4">
+    <section id="home" className="flex items-center justify-center py-4">
       <div className="relative h-[95svh] w-[95vw] overflow-hidden rounded-[28px] ">
         <Image
           src={selected.src}
@@ -95,37 +95,49 @@ const Hero = () => {
               <span className="typography-small-white-80">{selected.eyebrow}</span>
             </div>
 
-            <div className="grid grid-cols-1 items-end gap-6 md:grid-cols-12">
+            <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-12">
               {/* Headline */}
-              <div className="md:col-span-7">
-                <h1 className="typography-display-white">
+              <div className="md:col-span-8">
+                <h1 className="typography-display-white mb-6">
                   {selected.titleLine1}
                   <br />
                   {selected.titleLine2}
                 </h1>
-              </div>
-
-              {/* Right subtitle and trust */}
-              <div className="md:col-span-5 md:ml-auto flex flex-col items-start md:items-end gap-4">
-                <p className="max-w-md typography-body-white-90 text-right">
+                <p className="max-w-2xl typography-body-white-90 mb-8">
                   {selected.subtitle}
                 </p>
-                <div className="flex items-center gap-6">
-                  <span className="typography-small-white-90">{selected.trustedBy}</span>
-                  <div className="flex items-center gap-4">
-                    <a href="#" aria-label="Instagram" className="transition-opacity hover:opacity-80">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-white">
-                        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" strokeWidth="1.5"/>
-                        <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.5"/>
-                        <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-                      </svg>
-                    </a>
-                    <a href="#" aria-label="Twitter" className="transition-opacity hover:opacity-80">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-white">
-                        <path d="M21.5 3.5l-9 17-3-7-7-3 17-7-7 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </a>
-                  </div>
+                <div className="flex flex-wrap items-center gap-4">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 typography-button text-gray-900 shadow-lg hover:bg-gray-50 transition-all duration-200 hover:scale-[1.02]"
+                  >
+                    Work With Us
+                  </a>
+                  <a
+                    href="#how-we-work"
+                    className="inline-flex items-center justify-center rounded-xl border-2 border-white/30 px-8 py-4 typography-button text-white hover:border-white/50 hover:bg-white/10 transition-all duration-200"
+                  >
+                    See How We Work
+                  </a>
+                </div>
+              </div>
+
+              {/* Right trust indicator */}
+              <div className="md:col-span-4 md:ml-auto flex flex-col items-start md:items-end gap-4">
+                <span className="typography-small-white-90">{selected.trustedBy}</span>
+                <div className="flex items-center gap-4">
+                  <a href="#" aria-label="Instagram" className="transition-opacity hover:opacity-80">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-white">
+                      <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" strokeWidth="1.5"/>
+                      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.5"/>
+                      <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+                    </svg>
+                  </a>
+                  <a href="#" aria-label="Twitter" className="transition-opacity hover:opacity-80">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-white">
+                      <path d="M21.5 3.5l-9 17-3-7-7-3 17-7-7 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>

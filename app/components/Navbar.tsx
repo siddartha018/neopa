@@ -41,10 +41,10 @@ const Navbar = () => {
 
           {/* Nav links */}
           <nav className="hidden flex-1 items-center justify-center gap-6 typography-eyebrow-white sm:flex">
-            <a href="#" className="transition-colors hover:text-white">Home</a>
-            <a href="#" className="transition-colors hover:text-white">About</a>
-            <a href="#" className="transition-colors hover:text-white">Projects</a>
-            <a href="#" className="transition-colors hover:text-white">Journal</a>
+            <a href="#home" className="transition-colors hover:text-white">Home</a>
+            <a href="#services" className="transition-colors hover:text-white">Services</a>
+            <a href="#how-we-work" className="transition-colors hover:text-white">How We Work</a>
+            <a href="#contact" className="transition-colors hover:text-white">Contact</a>
           </nav>
 
           {/* CTA */}

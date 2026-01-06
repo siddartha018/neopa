@@ -24,16 +24,17 @@ const FeaturedTestimonial = () => {
 
         {/* Main quote */}
         <p className="typography-quote mb-10">
-          Every image tells a story, capturing moments with a seamless blend of art and emotion.
+          Media should earn attention, build trust, and drive meaningful growth.
         </p>
 
         {/* Name & role */}
         <div className="space-y-1">
           <p className="typography-title">
-            Mr. Liam Johnson
+            Our Promise
           </p>
           <p className="typography-body">
-            CEO &amp; Founder, Mica
+            We respect your audience&apos;s intelligence, treat your brand like a long-term asset, 
+            and measure success by impact, not noise.
           </p>
         </div>
       </div>

@@ -9,10 +9,13 @@ const Footer = () => {
           {/* Left Brand Section */}
           <div>
             <h2 className="typography-heading mb-4">
-              Neopa<sup className="text-2xl">®</sup>
+              Where Strategy Meets Culture
             </h2>
-            <p className="typography-body">
-              Contemporary architecture, prime locations, and upscale home design to inspire your next journey.
+            <p className="typography-body mb-4">
+              A people-first media agency delivering strategy, storytelling, and scalable growth.
+            </p>
+            <p className="typography-small text-gray-500">
+              We exist to help brands stay human, relevant, and profitable in a fast-moving digital world.
             </p>
           </div>
 
