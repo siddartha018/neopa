@@ -18,7 +18,7 @@ const Testimonials = () => {
     },
     {
       quote: 'Exactly What Our Website Needed',
-      body: 'Modern, high-quality visuals that made a strong first impression.',
+      body: 'Modern, high quality visuals that made a strong first impression.',
       name: 'Wedly',
       title: 'CEO Founder',
       avatar: '/images/wed3.avif',

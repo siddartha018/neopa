@@ -38,7 +38,7 @@ const PhotographyCTA = () => {
           </h2>
           <p className="max-w-2xl mx-auto typography-body mb-8">
             We are best for teams who want a strategic partner, value clarity and accountability, 
-            and are building for long-term growth.
+            and are building for long term growth.
           </p>
           
           {/* Who we work with */}
@@ -95,7 +95,7 @@ const PhotographyCTA = () => {
         {/* Trust statement */}
         <div className="text-center">
           <p className="typography-body text-gray-600">
-            A people-first media agency delivering strategy, storytelling, and scalable growth.
+            A people first media agency delivering strategy, storytelling, and scalable growth.
           </p>
         </div>
       </div>

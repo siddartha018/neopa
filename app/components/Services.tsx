@@ -16,7 +16,7 @@ const Services = () => {
             What We Do (And Why It Works)
           </h2>
           <p className="max-w-2xl mx-auto typography-body">
-            We build media systems, not one-off campaigns. Our work blends audience insight, brand narrative, 
+            We build media systems, not one off campaigns. Our work blends audience insight, brand narrative, 
             creative execution, performance amplification, and measurement loops.
           </p>
         </div>
@@ -27,7 +27,7 @@ const Services = () => {
           <div className="space-y-6">
             {/* Audience & Cultural Insight card */}
             <article className="bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden">
-              <div className="flex flex-col md:flex-row gap-6 p-6 md:p-8 md:h-[260px] lg:h-[260px]">
+              <div className="flex flex-col md:flex-row gap-6 p-6 md:p-8 md:min-h-[260px]">
                 {/* Image on left */}
                 <div className="relative md:w-[210px] md:h-full overflow-hidden rounded-2xl bg-gray-100 flex-shrink-0">
                   <img
@@ -49,10 +49,10 @@ const Services = () => {
                       Insight
                     </span>
                   </div>
-                  <h3 className="typography-title mb-2">
+                  <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2 leading-tight">
                     Audience & Cultural Insight
                   </h3>
-                  <p className="typography-body mb-4">
+                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">
                     Understanding people before platforms. Deep understanding of audience behavior, language, and context.
                   </p>
 
@@ -61,7 +61,7 @@ const Services = () => {
                       (tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 typography-badge"
+                          className="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-1 text-[10px] md:text-xs font-medium text-gray-800"
                         >
                           {tag}
                         </span>
@@ -74,7 +74,7 @@ const Services = () => {
 
             {/* Brand & Content Strategy card */}
             <article className="bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden">
-              <div className="flex flex-col md:flex-row gap-6 p-6 md:p-4 md:h-[200px] lg:h-[190px]">
+              <div className="flex flex-col md:flex-row gap-6 p-6 md:p-4 md:min-h-[200px]">
                 {/* Text content on left */}
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-3 text-gray-700">
@@ -85,10 +85,10 @@ const Services = () => {
                       Strategy
                     </span>
                   </div>
-                  <h3 className="typography-title mb-2">
+                  <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2 leading-tight">
                     Brand & Content Strategy
                   </h3>
-                  <p className="typography-body mb-4">
+                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">
                     Narrative design aligned to business objectives. Define what to say, why it matters, and how it scales.
                   </p>
 
@@ -96,7 +96,7 @@ const Services = () => {
                     {['Narrative design', 'Scalable framework', 'Consistency'].map((tag) => (
                       <span
                         key={tag}
-                        className="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 typography-badge"
+                        className="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-1 text-[10px] md:text-xs font-medium text-gray-800"
                       >
                         {tag}
                       </span>
@@ -140,10 +140,10 @@ const Services = () => {
                       Creative
                     </span>
                   </div>
-                  <h3 className="typography-title mb-2">
+                  <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2 leading-tight">
                     Creative Production
                   </h3>
-                  <p className="typography-body max-w-sm">
+                  <p className="text-sm text-gray-600 max-w-sm leading-relaxed">
                     Content designed for how people actually consume media. Higher engagement, stronger recall, better performance.
                   </p>
                   
@@ -153,7 +153,7 @@ const Services = () => {
                       (tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 typography-badge"
+                          className="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-1 text-[10px] md:text-xs font-medium text-gray-800"
                         >
                           {tag}
                         </span>
@@ -168,20 +168,20 @@ const Services = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Paid & Performance Media card */}
               <div className="bg-white rounded-3xl shadow-sm p-6 text-center">
-                <p className="text-2xl md:text-3xl font-semibold text-gray-900 mb-1">
+                <p className="text-xl md:text-2xl font-semibold text-gray-900 mb-1 leading-tight break-words">
                   Paid & Performance
                 </p>
-                <p className="typography-body text-sm">
+                <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
                   Amplification with intent, not guesswork
                 </p>
               </div>
 
               {/* Analytics & Optimization card */}
               <div className="bg-white rounded-3xl shadow-sm p-6 text-center">
-                <p className="text-2xl md:text-3xl font-semibold text-gray-900 mb-1">
+                <p className="text-xl md:text-2xl font-semibold text-gray-900 mb-1 leading-tight break-words">
                   Analytics & Optimization
                 </p>
-                <p className="typography-body text-sm">
+                <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
                   Learning loops that improve outcomes
                 </p>
               </div>

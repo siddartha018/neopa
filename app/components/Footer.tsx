@@ -12,10 +12,10 @@ const Footer = () => {
               Where Strategy Meets Culture
             </h2>
             <p className="typography-body mb-4">
-              A people-first media agency delivering strategy, storytelling, and scalable growth.
+              A people first media agency delivering strategy, storytelling, and scalable growth.
             </p>
             <p className="typography-small text-gray-500">
-              We exist to help brands stay human, relevant, and profitable in a fast-moving digital world.
+              We exist to help brands stay human, relevant, and profitable in a fast moving digital world.
             </p>
           </div>
 

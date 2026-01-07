@@ -21,12 +21,12 @@ const faqData = [
   {
     id: 4,
     question: 'How long until I get my photos?',
-    answer: 'Turnaround is usually 5-7 days.',
+    answer: 'Turnaround is usually 5 to 7 days.',
   },
   {
     id: 5,
     question: 'Can I request specific styles or poses?',
-    answer: 'Absolutely—your vision guides the session.',
+    answer: 'Absolutely, your vision guides the session.',
   },
 ];
 

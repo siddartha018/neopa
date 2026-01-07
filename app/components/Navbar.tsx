@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 const Arrow = ({ size = 12 }: { size?: number }) => (
@@ -11,7 +11,7 @@ const Arrow = ({ size = 12 }: { size?: number }) => (
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="text-white"
+      className="text-gray-900"
       style={{ transform: 'rotate(-45deg)' }}
     >
       <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -20,26 +20,18 @@ const Arrow = ({ size = 12 }: { size?: number }) => (
 );
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div className="pointer-events-none fixed top-4 left-1/2 z-50 -translate-x-1/2 w-[min(92vw,1000px)]">
-      {/* Outer frame for subtle outline */}
-      <div className="pointer-events-auto rounded-3xl border border-neutral-400/40 bg-neutral-500/20 p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.12)] backdrop-blur-md">
-        {/* Main bar */}
-        <div className="flex items-center justify-between gap-4 rounded-[20px] border border-white/10 bg-gradient-to-r from-neutral-900/90 via-neutral-800/90 to-neutral-700/90 px-3 py-2 sm:px-4 sm:py-3">
-          {/* Avatar */}
+      {/* Main bar */}
+      <div className="pointer-events-auto flex items-center justify-between gap-4 rounded-2xl bg-gray-900/80 backdrop-blur-lg px-4 py-3 sm:px-6 sm:py-3.5 shadow-lg border border-gray-700/30">
+          {/* Logo/Avatar */}
           <div className="flex items-center gap-3">
-            <div className="h-12 w-22 overflow-hidden rounded-2xl ">
-              <Image
-                src="/images/neopa.avif"
-                alt="Avatar"
-                width={80}
-                height={80}
-                className="h-full w-full object-cover"
-              />
-            </div>
+            <span className="text-white text-lg font-bold tracking-tight uppercase select-none">SOCIAL MONKS</span>
           </div>
 
-          {/* Nav links */}
+          {/* Nav links - Desktop */}
           <nav className="hidden flex-1 items-center justify-center gap-6 typography-eyebrow-white sm:flex">
             <a href="#home" className="transition-colors hover:text-white">Home</a>
             <a href="#services" className="transition-colors hover:text-white">Services</a>
@@ -47,18 +39,77 @@ const Navbar = () => {
             <a href="#contact" className="transition-colors hover:text-white">Contact</a>
           </nav>
 
-          {/* CTA */}
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl text-white hover:bg-white/10 transition-colors"
+            aria-label="Toggle menu"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {isMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+
+          {/* CTA - Desktop */}
           <a
-            href="#"
-            className="inline-flex items-center gap-3 rounded-2xl bg-white px-4 py-2 typography-button text-gray-900 shadow-sm transition-transform hover:scale-[1.02] sm:px-5 sm:py-2.5"
+            href="#contact"
+            className="hidden sm:inline-flex items-center gap-2 rounded-xl border border-white/30 bg-transparent px-5 py-2 typography-button text-white transition-all hover:bg-white/10 hover:border-white/50"
           >
             Contact
-            <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gray-900 text-white">
-              <Arrow size={12} />
-            </span>
           </a>
         </div>
-      </div>
+
+        {/* Mobile menu */}
+        {isMenuOpen && (
+          <div className="sm:hidden mt-2 rounded-xl bg-gray-900/95 backdrop-blur-lg border border-gray-700/30 p-4 shadow-lg">
+            <nav className="flex flex-col gap-4">
+              <a
+                href="#home"
+                onClick={() => setIsMenuOpen(false)}
+                className="typography-eyebrow-white py-2 transition-colors hover:text-white"
+              >
+                Home
+              </a>
+              <a
+                href="#services"
+                onClick={() => setIsMenuOpen(false)}
+                className="typography-eyebrow-white py-2 transition-colors hover:text-white"
+              >
+                Services
+              </a>
+              <a
+                href="#how-we-work"
+                onClick={() => setIsMenuOpen(false)}
+                className="typography-eyebrow-white py-2 transition-colors hover:text-white"
+              >
+                How We Work
+              </a>
+              <a
+                href="#contact"
+                onClick={() => setIsMenuOpen(false)}
+                className="typography-eyebrow-white py-2 transition-colors hover:text-white"
+              >
+                Contact
+              </a>
+              <a
+                href="#contact"
+                onClick={() => setIsMenuOpen(false)}
+                className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-transparent px-4 py-2 typography-button text-white mt-2 hover:bg-white/10"
+              >
+                Contact
+              </a>
+            </nav>
+          </div>
+        )}
     </div>
   );
 };

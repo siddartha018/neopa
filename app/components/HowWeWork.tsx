@@ -13,7 +13,7 @@ const steps = [
   {
     number: '01',
     title: 'Start With People',
-    description: 'We study your audience—language, motivations, friction points, and cultural context.',
+    description: 'We study your audience: language, motivations, friction points, and cultural context.',
   },
   {
     number: '02',
@@ -23,7 +23,7 @@ const steps = [
   {
     number: '03',
     title: 'Build the Media Engine',
-    description: 'Platforms, formats, cadence, and creative—designed to compound over time.',
+    description: 'Platforms, formats, cadence, and creative designed to compound over time.',
   },
   {
     number: '04',
@@ -33,7 +33,7 @@ const steps = [
   {
     number: '05',
     title: 'Measure What Matters',
-    description: 'We track engagement, leads, and growth signals—not vanity metrics.',
+    description: 'We track engagement, leads, and growth signals, not vanity metrics.',
   },
 ];
 

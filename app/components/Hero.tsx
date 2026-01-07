@@ -25,9 +25,9 @@ const Hero = () => {
         alt: 'Media agency strategy',
         eyebrow: 'Media Agency',
         titleLine1: 'We Build Media People Care About',
-        titleLine2: '— and Businesses Grow From.',
+        titleLine2: 'and Businesses Grow From.',
         subtitle:
-          'A people-first media agency combining cultural insight, strategy, and performance to turn attention into long-term growth.',
+          'A people first media agency combining cultural insight, strategy, and performance to turn attention into long term growth.',
         trustedBy: 'Trusted by brands building community',
       },
       {
@@ -38,18 +38,18 @@ const Hero = () => {
         titleLine1: 'Media Built for People.',
         titleLine2: 'Growth Built to Last.',
         subtitle:
-          'Strategy, culture, and performance—working as one system. We help brands stay human while scaling intelligently.',
+          'Strategy, culture, and performance working as one system. We help brands stay human while scaling intelligently.',
         trustedBy: 'Trusted by founders preparing for growth',
       },
       {
         id: 'hero-3',
         src: '/images/hero4.avif',
         alt: 'People-first media',
-        eyebrow: 'People-First Media',
+        eyebrow: 'People First Media',
         titleLine1: 'Algorithms Change.',
         titleLine2: 'People Don\'t.',
         subtitle:
-          'We build media around human behavior—not hacks. Media that earns attention, builds trust, and drives meaningful growth.',
+          'We build media around human behavior, not hacks. Media that earns attention, builds trust, and drives meaningful growth.',
         trustedBy: 'Trusted by companies tired of disconnected agencies',
       },
     ],

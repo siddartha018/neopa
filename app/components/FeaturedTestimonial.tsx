@@ -33,7 +33,7 @@ const FeaturedTestimonial = () => {
             Our Promise
           </p>
           <p className="typography-body">
-            We respect your audience&apos;s intelligence, treat your brand like a long-term asset, 
+            We respect your audience&apos;s intelligence, treat your brand like a long term asset, 
             and measure success by impact, not noise.
           </p>
         </div>

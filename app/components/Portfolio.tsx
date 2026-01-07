@@ -12,7 +12,7 @@ const portfolioItems = [
     id: 2,
     image: '/images/wed2.avif',
     title: 'Monochrome Mood',
-    description: 'Black-and-white tones with bold emotion.',
+    description: 'Black and white tones with bold emotion.',
     tag: 'Portrait Photography',
   },
   {
