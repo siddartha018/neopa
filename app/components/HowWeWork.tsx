@@ -1,5 +1,14 @@
 import React from 'react';
 
+// Assign a color (or gradient) for each step number 
+const stepColors = [
+  'bg-gradient-to-br from-pink-400 via-fuchsia-500 to-blue-400 text-white',
+  'bg-gradient-to-br from-yellow-400 via-orange-400 to-red-400 text-white',
+  'bg-gradient-to-br from-green-400 via-emerald-500 to-teal-400 text-white',
+  'bg-gradient-to-br from-indigo-400 via-violet-400 to-purple-400 text-white',
+  'bg-gradient-to-br from-rose-400 via-pink-400 to-fuchsia-400 text-white',
+];
+
 const steps = [
   {
     number: '01',
@@ -51,7 +60,7 @@ const HowWeWork = () => {
 
         {/* Steps */}
         <div className="space-y-8 md:space-y-12">
-          {steps.map((step) => (
+          {steps.map((step, idx) => (
             <div
               key={step.number}
               className="flex flex-col md:flex-row gap-6 md:gap-12 items-start"
@@ -59,7 +68,22 @@ const HowWeWork = () => {
               {/* Number */}
               <div className="flex-shrink-0">
                 <div className="flex items-center gap-4">
-                  <span className="text-6xl md:text-7xl font-bold text-gray-100 font-display">
+                  <span
+                    className={`text-6xl md:text-7xl font-bold font-display 
+                      inline-block 
+                      bg-clip-text text-transparent
+                      shadow-none 
+                      rounded-2xl
+                      ${stepColors[idx]}
+                      px-6 py-2
+                    `}
+                    style={{
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      // The bg classes above provide cross-browser gradient text, fallback to solid color for plain colors
+                    }}
+                  >
                     {step.number}
                   </span>
                   <div className="h-px w-12 bg-gray-300 hidden md:block" />
