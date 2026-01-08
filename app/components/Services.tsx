@@ -6,11 +6,11 @@ const Services = () => {
       <div className="max-w-6xl mx-auto px-6">
         {/* Top label + heading */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center rounded-full bg-white shadow-sm px-5 py-1 mb-6">
+          {/* <div className="inline-flex items-center justify-center rounded-full bg-white shadow-sm px-5 py-1 mb-6">
             <span className="typography-eyebrow">
               Services
             </span>
-          </div>
+          </div> */}
 
           <h2 className="typography-heading mb-4">
             What We Do (And Why It Works)

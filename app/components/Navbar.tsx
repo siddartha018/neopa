@@ -1,23 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
-
-const Arrow = ({ size = 12 }: { size?: number }) => (
-  <span className="inline-flex items-center justify-center rounded-full " style={{ width: size, height: size }}>
-    <svg
-      width={size - 2}
-      height={size - 2}
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="text-gray-900"
-      style={{ transform: 'rotate(-45deg)' }}
-    >
-      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  </span>
-);
+import Link from 'next/link';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,10 +17,11 @@ const Navbar = () => {
 
           {/* Nav links - Desktop */}
           <nav className="hidden flex-1 items-center justify-center gap-6 typography-eyebrow-white sm:flex">
-            <a href="#home" className="transition-colors hover:text-white">Home</a>
-            <a href="#services" className="transition-colors hover:text-white">Services</a>
-            <a href="#how-we-work" className="transition-colors hover:text-white">How We Work</a>
-            <a href="#contact" className="transition-colors hover:text-white">Contact</a>
+            <Link href="/#home" className="transition-colors hover:text-white">Home</Link>
+            <Link href="/#services" className="transition-colors hover:text-white">Services</Link>
+            <Link href="/#how-we-work" className="transition-colors hover:text-white">How We Work</Link>
+            <Link href="/#content-calendar" className="transition-colors hover:text-white">Calendar</Link>
+            <Link href="/#contact" className="transition-colors hover:text-white">Contact</Link>
           </nav>
 
           {/* Mobile menu button */}
@@ -72,41 +57,48 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="sm:hidden mt-2 rounded-xl bg-gray-900/95 backdrop-blur-lg border border-gray-700/30 p-4 shadow-lg">
             <nav className="flex flex-col gap-4">
-              <a
-                href="#home"
+              <Link
+                href="/#home"
                 onClick={() => setIsMenuOpen(false)}
                 className="typography-eyebrow-white py-2 transition-colors hover:text-white"
               >
                 Home
-              </a>
-              <a
-                href="#services"
+              </Link>
+              <Link
+                href="/#services"
                 onClick={() => setIsMenuOpen(false)}
                 className="typography-eyebrow-white py-2 transition-colors hover:text-white"
               >
                 Services
-              </a>
-              <a
-                href="#how-we-work"
+              </Link>
+              <Link
+                href="/#how-we-work"
                 onClick={() => setIsMenuOpen(false)}
                 className="typography-eyebrow-white py-2 transition-colors hover:text-white"
               >
                 How We Work
-              </a>
-              <a
-                href="#contact"
+              </Link>
+              <Link
+                href="/#content-calendar"
+                onClick={() => setIsMenuOpen(false)}
+                className="typography-eyebrow-white py-2 transition-colors hover:text-white"
+              >
+                Calendar
+              </Link>
+              <Link
+                href="/#contact"
                 onClick={() => setIsMenuOpen(false)}
                 className="typography-eyebrow-white py-2 transition-colors hover:text-white"
               >
                 Contact
-              </a>
-              <a
-                href="#contact"
+              </Link>
+              <Link
+                href="/#contact"
                 onClick={() => setIsMenuOpen(false)}
                 className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-transparent px-4 py-2 typography-button text-white mt-2 hover:bg-white/10"
               >
                 Contact
-              </a>
+              </Link>
             </nav>
           </div>
         )}

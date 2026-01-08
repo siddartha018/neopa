@@ -1,0 +1,257 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+
+interface CalendarEvent {
+  id?: number;
+  date: string;
+  title: string;
+  type: string;
+  status: string;
+  description: string;
+}
+
+export default function AdminDashboard() {
+  const [events, setEvents] = useState<CalendarEvent[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [formData, setFormData] = useState<CalendarEvent>({
+    date: '',
+    title: '',
+    type: 'Social Media',
+    status: 'Scheduled',
+    description: ''
+  });
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingId, setEditingId] = useState<number | null>(null);
+
+  useEffect(() => {
+    // Setup DB first if not exists (optional, but good for first run)
+    fetch('/api/setup-db').then(() => fetchEvents());
+  }, []);
+
+  const fetchEvents = async () => {
+    try {
+      const res = await fetch('/api/calendar');
+      const data = await res.json();
+      setEvents(data);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching events:', error);
+      setLoading(false);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      if (isEditing && editingId) {
+        await fetch('/api/calendar', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ...formData,
+            id: editingId
+          }),
+        });
+      } else {
+        await fetch('/api/calendar', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        });
+      }
+
+      setFormData({
+        date: '',
+        title: '',
+        type: 'Social Media',
+        status: 'Scheduled',
+        description: ''
+      });
+      setIsEditing(false);
+      setEditingId(null);
+      fetchEvents();
+    } catch (error) {
+      console.error('Error saving event:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleEdit = (event: CalendarEvent) => {
+    setFormData(event);
+    setIsEditing(true);
+    setEditingId(event.id || null);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleDelete = async (id?: number) => {
+    if (!id || !confirm('Are you sure you want to delete this event?')) return;
+    
+    try {
+      await fetch('/api/calendar', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id }),
+      });
+      fetchEvents();
+    } catch (error) {
+      console.error('Error deleting event:', error);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8 pt-24">
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-gray-900 rounded-2xl shadow-xl overflow-hidden border border-gray-800 p-8 mb-8">
+          <div className="flex justify-between items-center mb-6">
+            <h1 className="text-3xl font-bold text-blue-500 font-playfair">Admin Dashboard</h1>
+            <Link href="/" className="text-sm text-blue-400 hover:text-blue-300">← Back to Site</Link>
+          </div>
+          
+          <div className="bg-black rounded-xl p-6 border border-blue-900/30 mb-8 shadow-sm">
+            <h2 className="text-xl font-bold text-blue-400 mb-4 border-b border-gray-800 pb-2">
+              {isEditing ? 'Edit Event' : 'Add New Event'}
+            </h2>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-bold text-blue-300 mb-1">Date</label>
+                  <input
+                    type="date"
+                    required
+                    value={formData.date}
+                    onChange={e => setFormData({...formData, date: e.target.value})}
+                    className="w-full px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-900 text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow shadow-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-blue-300 mb-1">Title</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.title}
+                    onChange={e => setFormData({...formData, title: e.target.value})}
+                    placeholder="e.g. Instagram Post"
+                    className="w-full px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-900 text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow shadow-sm placeholder:text-gray-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-blue-300 mb-1">Type</label>
+                  <select
+                    value={formData.type}
+                    onChange={e => setFormData({...formData, type: e.target.value})}
+                    className="w-full px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-900 text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow shadow-sm"
+                  >
+                    <option value="Social Media">Social Media</option>
+                    <option value="Article">Article</option>
+                    <option value="Email">Email</option>
+                    <option value="Video">Video</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-blue-300 mb-1">Status</label>
+                  <select
+                    value={formData.status}
+                    onChange={e => setFormData({...formData, status: e.target.value})}
+                    className="w-full px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-900 text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow shadow-sm"
+                  >
+                    <option value="Scheduled">Scheduled</option>
+                    <option value="Drafting">Drafting</option>
+                    <option value="Review">Review</option>
+                    <option value="Published">Published</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-blue-300 mb-1">Description</label>
+                <textarea
+                  required
+                  rows={3}
+                  value={formData.description}
+                  onChange={e => setFormData({...formData, description: e.target.value})}
+                  className="w-full px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-900 text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow shadow-sm placeholder:text-gray-500"
+                  placeholder="Enter event details..."
+                ></textarea>
+              </div>
+              
+              <div className="flex gap-3 pt-2">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="px-6 py-2.5 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transition-colors disabled:opacity-50 shadow-sm"
+                >
+                  {loading ? 'Saving...' : (isEditing ? 'Update Event' : 'Add Event')}
+                </button>
+                {isEditing && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsEditing(false);
+                      setEditingId(null);
+                      setFormData({
+                        date: '',
+                        title: '',
+                        type: 'Social Media',
+                        status: 'Scheduled',
+                        description: ''
+                      });
+                    }}
+                    className="px-6 py-2.5 bg-black text-blue-400 font-medium rounded-lg border border-blue-900/50 hover:bg-gray-900 transition-colors shadow-sm"
+                  >
+                    Cancel
+                  </button>
+                )}
+              </div>
+            </form>
+          </div>
+
+          <h2 className="text-2xl font-bold text-blue-400 font-playfair mb-6">Current Schedule</h2>
+          <div className="space-y-4">
+            {events.length === 0 ? (
+              <p className="text-gray-500 text-center py-8">No events scheduled yet.</p>
+            ) : (
+              events.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()).map((event, idx) => (
+                <div key={idx} className="bg-black border border-gray-800 rounded-xl p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-blue-900/50 transition-colors group">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-1">
+                      <span className="text-sm font-medium text-blue-400 bg-blue-900/20 px-2 py-1 rounded border border-blue-900/30">{event.date}</span>
+                      <span className={`text-xs px-2 py-1 rounded-full font-medium ${
+                        event.status === 'Scheduled' ? 'bg-green-900/20 text-green-400 border border-green-900/30' :
+                        event.status === 'Drafting' ? 'bg-yellow-900/20 text-yellow-400 border border-yellow-900/30' :
+                        'bg-gray-800 text-gray-400 border border-gray-700'
+                      }`}>
+                        {event.status}
+                      </span>
+                    </div>
+                    <h3 className="font-bold text-white group-hover:text-blue-200 transition-colors">{event.title}</h3>
+                    <p className="text-sm text-gray-400">{event.description}</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => handleEdit(event)}
+                      className="px-3 py-1.5 text-sm font-medium text-blue-400 bg-blue-900/20 rounded-lg hover:bg-blue-900/40 transition-colors border border-blue-900/30"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(event.id)}
+                      className="px-3 py-1.5 text-sm font-medium text-red-400 bg-red-900/20 rounded-lg hover:bg-red-900/40 transition-colors border border-red-900/30"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+

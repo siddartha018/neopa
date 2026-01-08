@@ -1,33 +1,55 @@
 import React from 'react';
+import Image from 'next/image';
 
 const portfolioItems = [
   {
     id: 1,
-    image: '/images/wed1.avif',
-    title: 'Crafted Details',
-    description: 'Telling flavor stories through styled shots.',
-    tag: 'Product Photography',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
+    title: 'SEO',
+    description: 'Search engine optimization to improve your online visibility and rankings.',
+    tag: 'Digital Marketing',
   },
   {
     id: 2,
-    image: '/images/wed2.avif',
-    title: 'Monochrome Mood',
-    description: 'Black and white tones with bold emotion.',
-    tag: 'Portrait Photography',
+    image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80',
+    title: 'GMB Management',
+    description: 'Google My Business management to enhance your local presence.',
+    tag: 'Local SEO',
   },
   {
     id: 3,
-    image: '/images/wed3.avif',
-    title: 'Quiet Luxury',
-    description: 'Moments that feel effortless yet refined.',
-    tag: 'Event Photography',
+    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80',
+    title: 'Social Media Marketing & PPC',
+    description: 'Social media marketing and paid advertising across all platforms.',
+    tag: 'Advertising',
   },
   {
     id: 4,
-    image: '/images/wed4.avif',
-    title: 'Urban Elegance',
-    description: 'Clean lines and contrast in city structures.',
-    tag: 'Portrait Photography',
+    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80',
+    title: 'Blog Marketing',
+    description: 'Content marketing and blog strategies to engage your audience.',
+    tag: 'Content Marketing',
+  },
+  {
+    id: 5,
+    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80',
+    title: 'Development',
+    description: 'All types of websites and software development services.',
+    tag: 'Development',
+  },
+  {
+    id: 6,
+    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80',
+    title: 'Video Editing, Graphic Design & UI/UX',
+    description: 'Creative services including video editing, graphic design, and UI/UX design.',
+    tag: 'Creative Services',
+  },
+  {
+    id: 7,
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',
+    title: 'Virtual Assistant Services',
+    description: 'Comprehensive virtual assistant services to support your business.',
+    tag: 'Support Services',
   },
 ];
 
@@ -39,33 +61,32 @@ const Portfolio = () => {
         <div className="text-center mb-14 md:mb-16">
           <div className="inline-flex items-center justify-center rounded-full bg-white shadow-sm px-5 py-1 mb-6">
             <span className="typography-eyebrow">
-              My Portfolio
+              Services
             </span>
           </div>
 
           <h2 className="typography-heading mb-4">
-            A glimpse through my
-            <br className="hidden md:block" /> perspective
+            Our Services
           </h2>
           <p className="max-w-2xl mx-auto typography-body">
-            I transform your vision into reality with creative editorial
-            and portrait photography.
+            Comprehensive digital marketing and development services to grow your business.
           </p>
         </div>
 
         {/* Grid of portfolio items */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-10 md:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-10 md:mb-12">
           {portfolioItems.map((item) => (
             <article
               key={item.id}
               className="bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
-                <img
+                <Image
                   src={item.image}
                   alt={item.title}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
 
                 {/* Corner brackets overlay (to mimic camera framing) */}

@@ -11,6 +11,7 @@ import PhotographyCTA from "./components/PhotographyCTA";
 import FAQ from "./components/FAQ";
 import Tyshi from "./components/Tyshi";
 import HowWeWork from "./components/HowWeWork";
+import ContentCalendar from "./components/ContentCalendar";
 
 export default function Home() {
   return (
@@ -20,6 +21,17 @@ export default function Home() {
       <Benefits/>
       <Services/>
       <HowWeWork />
+      <section id="content-calendar" className="py-24 bg-gray-50/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 font-playfair mb-4">
+            Content Calendar
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Stay updated with upcoming content schedule. Monitor progress from draft to publication.
+          </p>
+        </div>
+        <ContentCalendar />
+      </section>
       <FeaturedTestimonial />
       <Portfolio/>
       <Blog/>
