@@ -16,12 +16,15 @@ const Corner = ({ position }: { position: 'tl' | 'tr' | 'bl' | 'br' }) => {
   return <span className={`${base} ${pos}`} aria-hidden="true" />;
 };
 
+// Helper to check if src is external
+const isExternalImage = (src: string) => /^https?:\/\//.test(src);
+
 const Hero = () => {
   const slides = useMemo(
     () => [
       {
         id: 'hero-1',
-        src: '/nimages/im2.png',
+        src: '/nimages/im1.png',
         alt: 'Media agency strategy',
         eyebrow: 'Media Agency',
         titleLine1: 'We Build Media People Care About',
@@ -43,7 +46,8 @@ const Hero = () => {
       },
       {
         id: 'hero-3',
-        src: '/nimages/im9.png',
+        src: 'https://images.unsplash.com/photo-1505739998589-00fc191ce01d?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        // ^^^ Fixes the url: must be a direct image URL, not an Unsplash page
         alt: 'People-first media',
         eyebrow: 'People First Media',
         titleLine1: 'Algorithms Change.',
@@ -71,10 +75,40 @@ const Hero = () => {
   }, [selectedIndex, slides.length]);
   const selected = slides[selectedIndex];
   const stacked = slides.filter((_, i) => i !== selectedIndex);
+
+  // Safe render for <Image> if src external: use unoptimized for next/image, or fallback to <img>
+  function RenderImage(props: { src: string, alt: string, fill?: boolean, className?: string, priority?: boolean, sizes?: string }) {
+    if (isExternalImage(props.src)) {
+      // Use next/image with unoptimized for external images, or fallback to <img> if issues
+      return (
+        <Image
+          src={props.src}
+          alt={props.alt}
+          fill={props.fill}
+          sizes={props.sizes}
+          priority={props.priority}
+          className={props.className}
+          unoptimized
+        />
+      );
+    }
+    // Internal images are fine
+    return (
+      <Image
+        src={props.src}
+        alt={props.alt}
+        fill={props.fill}
+        sizes={props.sizes}
+        priority={props.priority}
+        className={props.className}
+      />
+    );
+  }
+
   return (
     <section id="home" className="flex items-center justify-center py-4">
       <div className="relative h-[95svh] w-[95vw] overflow-hidden rounded-[28px] ">
-        <Image
+        <RenderImage
           src={selected.src}
           alt={selected.alt}
           fill
@@ -152,7 +186,7 @@ const Hero = () => {
                   aria-label={`Show slide ${idx + 1}`}
                   className={`relative h-16 w-16 overflow-hidden rounded-lg border border-white/40 bg-white/10 backdrop-blur transition-transform hover:scale-[1.03] focus:outline-none focus:ring-2 focus:ring-white/60 ${idx === 1 ? '-ml-4 rotate-6' : ''}`}
                 >
-                  <Image src={s.src} alt={s.alt} fill className="object-cover" />
+                  <RenderImage src={s.src} alt={s.alt} fill className="object-cover" />
                 </button>
               ))}
             </div>
@@ -170,5 +204,4 @@ const Hero = () => {
 };
 
 export default Hero;
-
 
