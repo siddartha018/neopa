@@ -21,7 +21,7 @@ const Hero = () => {
     () => [
       {
         id: 'hero-1',
-        src: '/images/hero1.avif',
+        src: '/nimages/im7.png',
         alt: 'Media agency strategy',
         eyebrow: 'Media Agency',
         titleLine1: 'We Build Media People Care About',
@@ -32,7 +32,7 @@ const Hero = () => {
       },
       {
         id: 'hero-2',
-        src: '/images/hero2.avif',
+        src: '/nimages/im8.png',
         alt: 'Strategy meets culture',
         eyebrow: 'Where Strategy Meets Culture',
         titleLine1: 'Media Built for People.',
@@ -43,7 +43,7 @@ const Hero = () => {
       },
       {
         id: 'hero-3',
-        src: '/images/hero4.avif',
+        src: '/nimages/im9.png',
         alt: 'People-first media',
         eyebrow: 'People First Media',
         titleLine1: 'Algorithms Change.',

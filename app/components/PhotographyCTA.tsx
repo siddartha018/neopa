@@ -6,14 +6,14 @@ import Image from 'next/image';
 const PhotographyCTA = () => {
   // Images for the marquee - using available images from the project
   const marqueeImages = [
-    { src: '/images/hero1.avif', alt: 'Portrait photography' },
-    { src: '/images/hero2.avif', alt: 'Abstract photography' },
-    { src: '/images/hero3.avif', alt: 'Lifestyle photography' },
-    { src: '/images/hero4.avif', alt: 'Creative photography' },
-    { src: '/images/wed1.avif', alt: 'Wedding photography' },
-    { src: '/images/wed2.avif', alt: 'Event photography' },
-    { src: '/images/ni1.avif', alt: 'Editorial photography' },
-    { src: '/images/ni2.avif', alt: 'Brand photography' },
+    { src: '/nimages/im7.png', alt: 'Portrait photography' },
+    { src: '/nimages/im8.png', alt: 'Abstract photography' },
+    { src: '/nimages/im9.png', alt: 'Lifestyle photography' },
+    { src: '/nimages/im10.png', alt: 'Creative photography' },
+    { src: '/nimages/im11.png', alt: 'Wedding photography' },
+    { src: '/nimages/im12.png', alt: 'Event photography' },
+    { src: '/nimages/im13.png', alt: 'Editorial photography' },
+    { src: '/nimages/im14.png', alt: 'Brand photography' },
   ];
 
   // Duplicate images for seamless loop

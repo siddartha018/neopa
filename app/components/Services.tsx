@@ -31,7 +31,7 @@ const Services = () => {
                 {/* Image on left */}
                 <div className="relative md:w-[210px] md:h-full overflow-hidden rounded-2xl bg-gray-100 flex-shrink-0">
                   <img
-                    src="/images/hero2.avif"
+                    src="/nimages/im16.png"
                     alt="Audience & Cultural Insight"
                     className="h-full w-full object-cover"
                     loading="lazy"
@@ -107,7 +107,7 @@ const Services = () => {
                 {/* Image on right */}
                 <div className="relative md:w-[210px] md:h-full overflow-hidden rounded-2xl bg-gray-100 flex-shrink-0">
                   <img
-                    src="/images/cube.avif"
+                    src="/nimages/im17.png"
                     alt="Brand Strategy"
                     className="h-full w-full object-cover"
                     loading="lazy"
@@ -123,7 +123,7 @@ const Services = () => {
             {/* Large Branding & Lifestyle Photography card - image background, text overlay in middle */}
             <div className="relative overflow-hidden rounded-3xl bg-gray-900 shadow-sm h-[260px] md:h-[320px] lg:h-[340px]">
               <img
-                src="/images/hero3.avif"
+                src="/nimages/im18.png"
                 alt="Branding & Lifestyle Photography"
                 className="h-full w-full object-cover"
                 loading="lazy"

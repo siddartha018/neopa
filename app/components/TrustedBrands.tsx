@@ -10,9 +10,9 @@ type BrandItem = {
 const BRANDS: BrandItem[] = [
   { src: '/images/br1.png', alt: 'Brand 1' },
   { src: '/images/br2.webp', alt: 'Brand 2' },
-  { src: '/images/br3.png', alt: 'Brand 3' },
-  { src: '/images/br4.webp', alt: 'Brand 4' },
-  { src: '/images/br5.png', alt: 'Brand 5' },
+  { src: '/nimages/im3.png', alt: 'Brand 3' },
+  { src: '/nimages/im4.png', alt: 'Brand 4' },
+  { src: '/nimages/im5.png', alt: 'Brand 5' },
   { src: '/images/br6.webp', alt: 'Brand 6' },
 ];
 

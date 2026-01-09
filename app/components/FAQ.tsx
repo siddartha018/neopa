@@ -58,7 +58,7 @@ const FAQ = () => {
                 {/* Front image - slightly rotated clockwise */}
                 <div className="absolute inset-0 transform rotate-2 z-10">
                   <img
-                    src="/images/hero1.avif"
+                    src="/nimages/im7.png"
                     alt="Photography"
                     className="w-full h-full object-cover rounded-2xl shadow-md"
                     loading="lazy"
@@ -67,7 +67,7 @@ const FAQ = () => {
                 {/* Back image - slightly rotated counter-clockwise */}
                 <div className="absolute inset-0 transform -rotate-2 translate-x-4 translate-y-4 z-0">
                   <img
-                    src="/images/hero2.avif"
+                    src="/nimages/im8.png"
                     alt="Photography"
                     className="w-full h-full object-cover rounded-2xl shadow-md opacity-80"
                     loading="lazy"

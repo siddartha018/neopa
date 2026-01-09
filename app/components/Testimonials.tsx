@@ -7,21 +7,21 @@ const Testimonials = () => {
       body: 'The photos were sharp, clean, and made our website look premium.',
       name: 'Henki',
       title: 'Artist',
-      avatar: '/images/wed1.avif',
+      avatar: '/nimages/im11.png',
     },
     {
       quote: 'Captured the Essence of Our Business',
       body: 'Each image told a story and aligned perfectly with our vision.',
       name: 'Leopas',
       title: 'Artist',
-      avatar: '/images/wed2.avif',
+      avatar: '/nimages/im12.png',
     },
     {
       quote: 'Exactly What Our Website Needed',
       body: 'Modern, high quality visuals that made a strong first impression.',
       name: 'Wedly',
       title: 'CEO Founder',
-      avatar: '/images/wed3.avif',
+      avatar: '/nimages/im13.png',
     },
   ];
 

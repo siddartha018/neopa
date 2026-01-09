@@ -21,10 +21,10 @@ const CARD_WIDTHS_PERCENT = [32, 36, 32]; // left, center, right (adds up to 100
 
 const Tyshi: React.FC<TyshiProps> = ({
   items = [
-    { id: 1, image: '/images/hero1.avif', alt: 'Hero image 1' },
-    { id: 2, image: '/images/hero2.avif', alt: 'Hero image 2' },
-    { id: 3, image: '/images/hero3.avif', alt: 'Hero image 3' },
-    { id: 4, image: '/images/hero4.avif', alt: 'Hero image 4' },
+    { id: 1, image: '/nimages/im7.png', alt: 'Hero image 1' },
+    { id: 2, image: '/nimages/im8.png', alt: 'Hero image 2' },
+    { id: 3, image: '/nimages/im9.png', alt: 'Hero image 3' },
+    { id: 4, image: '/nimages/im10.png', alt: 'Hero image 4' },
   ],
   autoScrollInterval = 2000,
   showDots = true,

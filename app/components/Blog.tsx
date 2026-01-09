@@ -3,37 +3,37 @@ import React from 'react';
 const blogPosts = [
   {
     id: 1,
-    image: '/images/ni1.avif',
+    image: '/nimages/im1.png',
     title: 'Savor the Stillness',
     tag: 'Editing',
   },
   {
     id: 2,
-    image: '/images/ni2.avif',
+    image: '/nimages/im2.png',
     title: 'Minimal Mood',
     tag: 'Editing',
   },
   {
     id: 3,
-    image: '/images/ni3.avif',
+    image: '/nimages/im3.png',
     title: 'Concrete & Contrast',
     tag: 'Editing',
   },
   {
     id: 4,
-    image: '/images/wed1.avif',
+    image: '/nimages/im4.png',
     title: 'Framed by Light',
     tag: 'Lighting',
   },
   {
     id: 5,
-    image: '/images/wed2.avif',
+    image: '/nimages/im5.png',
     title: 'In Motion',
     tag: 'Effect',
   },
   {
     id: 6,
-    image: '/images/wed3.avif',
+    image: '/nimages/im6.png',
     title: 'Texture & Tone',
     tag: 'Effect',
   },
