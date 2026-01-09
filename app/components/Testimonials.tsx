@@ -5,9 +5,9 @@ const Testimonials = () => {
     {
       quote: 'Best Quality That Boosted Our Brand',
       body: 'The photos were sharp, clean, and made our website look premium.',
-      name: 'Henki Fiern',
-      title: 'Artist',
-      avatar: '/nimages/im11.png',
+      name: 'PathBreakers',
+      
+      avatar: '/nimages/path.png',
     },
     // Add more testimonials below as needed, but one should be "fiern" and featured.
     // {
@@ -94,7 +94,6 @@ const Testimonials = () => {
               {/* Name and Title */}
               <div>
                 <p className="text-lg font-semibold text-gray-900">{fiernTestimonial.name}</p>
-                <p className="text-base text-gray-500">{fiernTestimonial.title}</p>
               </div>
             </div>
 
