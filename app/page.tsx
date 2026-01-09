@@ -34,7 +34,7 @@ export default function Home() {
       </section>
       <FeaturedTestimonial />
       <Portfolio/>
-      <Blog/>
+      {/* <Blog/> */}
       <Tyshi/>
       <Testimonials/>
       <FAQ/>

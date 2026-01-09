@@ -18,14 +18,14 @@ const portfolioItems = [
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1643503640904-75c1a2093570?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     title: 'Social Media Marketing & PPC',
     description: 'Social media marketing and paid advertising across all platforms.',
     tag: 'Advertising',
   },
   {
     id: 4,
-    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80',
     title: 'Blog Marketing',
     description: 'Content marketing and blog strategies to engage your audience.',
     tag: 'Content Marketing',
@@ -39,7 +39,7 @@ const portfolioItems = [
   },
   {
     id: 6,
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80',
     title: 'Video Editing, Graphic Design & UI/UX',
     description: 'Creative services including video editing, graphic design, and UI/UX design.',
     tag: 'Creative Services',

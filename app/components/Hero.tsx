@@ -21,7 +21,7 @@ const Hero = () => {
     () => [
       {
         id: 'hero-1',
-        src: '/nimages/im7.png',
+        src: '/nimages/im2.png',
         alt: 'Media agency strategy',
         eyebrow: 'Media Agency',
         titleLine1: 'We Build Media People Care About',

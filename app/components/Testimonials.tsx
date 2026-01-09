@@ -5,30 +5,31 @@ const Testimonials = () => {
     {
       quote: 'Best Quality That Boosted Our Brand',
       body: 'The photos were sharp, clean, and made our website look premium.',
-      name: 'Henki',
+      name: 'Henki Fiern',
       title: 'Artist',
       avatar: '/nimages/im11.png',
     },
-    {
-      quote: 'Captured the Essence of Our Business',
-      body: 'Each image told a story and aligned perfectly with our vision.',
-      name: 'Leopas',
-      title: 'Artist',
-      avatar: '/nimages/im12.png',
-    },
-    {
-      quote: 'Exactly What Our Website Needed',
-      body: 'Modern, high quality visuals that made a strong first impression.',
-      name: 'Wedly',
-      title: 'CEO Founder',
-      avatar: '/nimages/im13.png',
-    },
+    // Add more testimonials below as needed, but one should be "fiern" and featured.
+    // {
+    //   quote: 'Captured the Essence of Our Business',
+    //   body: 'Each image told a story and aligned perfectly with our vision.',
+    //   name: 'Leopas',
+    //   title: 'Artist',
+    //   avatar: '/nimages/im12.png',
+    // },
+    // {
+    //   quote: 'Exactly What Our Website Needed',
+    //   body: 'Modern, high quality visuals that made a strong first impression.',
+    //   name: 'Wedly',
+    //   title: 'CEO Founder',
+    //   avatar: '/nimages/im13.png',
+    // },
   ];
 
   const StarIcon = ({ filled = true, className = '' }: { filled?: boolean; className?: string }) => (
     <svg
-      width="16"
-      height="16"
+      width="24"
+      height="24"
       viewBox="0 0 24 24"
       fill={filled ? 'currentColor' : 'none'}
       stroke="currentColor"
@@ -38,6 +39,9 @@ const Testimonials = () => {
       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
     </svg>
   );
+
+  // Only one (the Fiern testimonial) is shown and made visually bigger.
+  const fiernTestimonial = testimonials[0];
 
   return (
     <section className="w-full bg-gray-50 py-16 md:py-24">
@@ -62,50 +66,45 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {/* Testimonial Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-6 md:p-8"
-            >
-              {/* Quote */}
-              <h3 className="typography-title mb-3">
-                &quot;{testimonial.quote}&quot;
-              </h3>
+        {/* Featured Fiern Testimonial Card - made bigger */}
+        <div className="flex justify-center mb-12">
+          <div
+            className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 px-8 py-10 max-w-2xl w-full flex flex-col items-center text-center"
+          >
+            {/* Quote */}
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 leading-tight">
+              &quot;{fiernTestimonial.quote}&quot;
+            </h3>
+            {/* Body Text */}
+            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-xl">
+              {fiernTestimonial.body}
+            </p>
 
-              {/* Body Text */}
-              <p className="typography-body mb-6">
-                {testimonial.body}
-              </p>
-
-              {/* User Info */}
-              <div className="flex items-center gap-3">
-                {/* Avatar */}
-                <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-gray-200">
-                  <img
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-
-                {/* Name and Title */}
-                <div className="flex-1">
-                  <p className="typography-title">{testimonial.name}</p>
-                  <p className="typography-small">{testimonial.title}</p>
-                </div>
-
-                {/* Rating Stars */}
-                <div className="flex gap-1 text-orange-500">
-                  {[...Array(4)].map((_, i) => (
-                    <StarIcon key={i} filled={true} className="text-orange-500" />
-                  ))}
-                </div>
+            {/* User Info */}
+            <div className="flex flex-col items-center gap-2 mb-4">
+              {/* Avatar */}
+              <div className="w-20 h-20 rounded-full overflow-hidden bg-gray-200 mb-2 border-4 border-gray-100 shadow">
+                <img
+                  src={fiernTestimonial.avatar}
+                  alt={fiernTestimonial.name}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              {/* Name and Title */}
+              <div>
+                <p className="text-lg font-semibold text-gray-900">{fiernTestimonial.name}</p>
+                <p className="text-base text-gray-500">{fiernTestimonial.title}</p>
               </div>
             </div>
-          ))}
+
+            {/* Rating Stars */}
+            <div className="flex gap-2 justify-center text-orange-500 mb-2">
+              {[...Array(4)].map((_, i) => (
+                <StarIcon key={i} filled={true} className="text-2xl text-orange-500" />
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Trust Indicator */}
