@@ -12,6 +12,12 @@ const Navbar = () => {
       <div className="pointer-events-auto flex items-center justify-between gap-4 rounded-2xl bg-gray-900/80 backdrop-blur-lg px-4 py-3 sm:px-6 sm:py-3.5 shadow-lg border border-gray-700/30">
           {/* Logo/Avatar */}
           <div className="flex items-center gap-3">
+            <img
+              src="/nimages/logo.png"
+              alt="Social Monks Logo"
+              className="h-12 w-12 object-contain"
+              style={{ pointerEvents: 'none' }}
+            />
             <span className="text-white text-lg font-bold tracking-tight uppercase select-none">SOCIAL MONKS</span>
           </div>
 

@@ -1,33 +1,33 @@
 import React from 'react';
+import Image from 'next/image';
 
 const benefits = [
   {
     id: 1,
     icon: '👥',
+    label: 'INSIGHT',
     title: 'Start with people, not platforms',
     description: 'We study your audience: language, motivations, friction points, and cultural context before designing media.',
-    tag: 'People First',
-    // Brighter gradient using 50 and 100 shades, and some neon touch
-    cardBg: 'bg-gradient-to-br from-pink-50 via-blue-100 to-fuchsia-100',
-    badgeBg: 'bg-pink-100/80',
+    tags: ['Behavior analysis', 'Cultural context', 'Clear direction'],
+    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80',
   },
   {
     id: 2,
     icon: '🎨',
+    label: 'CREATIVE',
     title: 'Connect creativity to performance',
     description: 'Strategy, creative, and performance work together, not in silos. Media that performs and connects.',
-    tag: 'Integrated Approach',
-    cardBg: 'bg-gradient-to-br from-yellow-50 via-rose-100 to-orange-100',
-    badgeBg: 'bg-yellow-100/80',
+    tags: ['Integrated Approach', 'Performance', 'Strategy'],
+    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80',
   },
   {
     id: 3,
     icon: '📈',
+    label: 'GROWTH',
     title: 'Compound value over time',
     description: 'We build media systems that scale, not short term spikes. Long term growth through sustainable strategy.',
-    tag: 'Long Term Growth',
-    cardBg: 'bg-gradient-to-br from-green-50 via-lime-100 to-emerald-100',
-    badgeBg: 'bg-green-100/80',
+    tags: ['Long Term Growth', 'Sustainable', 'Scalable'],
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
   },
 ];
 
@@ -54,28 +54,56 @@ const Benefits = () => {
         </div>
 
         {/* Benefit cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6">
           {benefits.map((item) => (
-            <div
+            <article
               key={item.id}
-              className={`${item.cardBg} rounded-3xl px-8 py-10 text-center shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border border-white/70`}
-              style={{ backgroundBlendMode: 'lighten' }}
+              className="bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
             >
-              <div className="flex items-center justify-center mb-6 text-4xl drop-shadow-md">
-                <span aria-hidden="true">{item.icon}</span>
+              {/* Image at top */}
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
               </div>
-              <h3 className="typography-title mb-3 text-fuchsia-700 font-semibold">
-                {item.title}
-              </h3>
-              <p className="typography-body mb-8 text-gray-800">
-                {item.description}
-              </p>
-              <div className={`inline-flex items-center justify-center rounded-full ${item.badgeBg} px-5 py-2 border border-white font-bold text-pink-700 shadow`}>
-                <span className="typography-badge">
-                  {item.tag}
-                </span>
+
+              {/* Text content at bottom */}
+              <div className="px-4 py-4 md:px-5 md:py-5">
+                {/* Label with icon */}
+                <div className="flex items-center gap-1.5 mb-1.5">
+                  <span className="text-gray-400 text-sm" aria-hidden="true">{item.icon}</span>
+                  <span className="text-xs text-gray-400 uppercase tracking-wider font-medium">
+                    {item.label}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-lg font-semibold mb-2 text-gray-900 leading-tight">
+                  {item.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-sm text-gray-600 mb-3 leading-snug line-clamp-2">
+                  {item.description}
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5">
+                  {item.tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="inline-flex items-center rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-700"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

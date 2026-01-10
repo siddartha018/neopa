@@ -6,79 +6,84 @@ const portfolioItems = [
   //   id: 1,
   //   image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
   //   title: 'SEO',
-  //   description: 'Search engine optimization to improve your online visibility and rankings.',
+  //   description: 'Search engine optimization to improve your online visibility and rankings.\nUnlock the customers already searching for you. Dominate search and own your category.',
   //   tag: 'Digital Marketing',
   // },
   // {
   //   id: 2,
   //   image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80',
   //   title: 'GMB Management',
-  //   description: 'Google My Business management to enhance your local presence.',
+  //   description: 'Google My Business management to enhance your local presence.\nRise to the top of local search. Be who people call first, every time.',
   //   tag: 'Local SEO',
   // },
   // {
   //   id: 3,
   //   image: 'https://images.unsplash.com/photo-1643503640904-75c1a2093570?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   //   title: 'Social Media Marketing & PPC',
-  //   description: 'Social media marketing and paid advertising across all platforms.',
+  //   description: 'Social media marketing and paid advertising across all platforms.\nFuel growth with scroll-stopping creative. Turn attention into loyal customers.',
   //   tag: 'Advertising',
   // },
   // {
   //   id: 4,
   //   image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80',
   //   title: 'Blog Marketing',
-  //   description: 'Content marketing and blog strategies to engage your audience.',
+  //   description: 'Content marketing and blog strategies to engage your audience.\nEducate, inspire, and convert through every post. Become the authority in your space.',
   //   tag: 'Content Marketing',
   // },
   // {
   //   id: 5,
   //   image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80',
   //   title: 'Development',
-  //   description: 'All types of websites and software development services.',
+  //   description: 'All types of websites and software development services.\nLaunch fast, run smooth, scale without limits. We build digital that just works.',
   //   tag: 'Development',
   // },
   // {
   //   id: 6,
   //   image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80',
   //   title: 'Video Editing, Graphic Design & UI/UX',
-  //   description: 'Creative services including video editing, graphic design, and UI/UX design.',
+  //   description: 'Creative services including video editing, graphic design, and UI/UX design.\nStand out in a crowded feed. Create an experience people remember.',
   //   tag: 'Creative Services',
   // },
   
   // --- Additional items based on the screenshot ---
   {
     id: 8,
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80', // Add custom image if needed
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
     title: 'Strategy',
-    description: 'Your socials, decoded into strategy that delivers.',
+    description:
+      'Your socials, decoded into strategy that delivers.\nClarity where others deliver chaos. We map out a plan for lasting results.',
     tag: 'Social Media',
   },
   {
     id: 9,
     image: 'https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=800&q=80',
     title: 'Content Creation',
-    description: 'Branded, culture-led content that actually converts.',
+    description:
+      'Branded, culture-led content that actually converts.\nContent built to spark conversations. Make every scroll count for your brand.',
     tag: 'Creative',
   },
   {
     id: 10,
-    image: 'https://images.unsplash.com/photo-1643503640904-75c1a2093570?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Add custom image if needed
+    image: 'https://images.unsplash.com/photo-1643503640904-75c1a2093570?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     title: 'Social Media Management',
-    description: 'End-to-end management, without the overwhelm.',
+    description:
+      'End-to-end management, without the overwhelm.\nStay visible, stay relevant, and never miss a beat. Let us handle it all while you focus on growth.',
     tag: 'Management',
   },
   {
     id: 11,
     image: 'https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=800&q=80',
     title: 'Community Management',
-    description: 'Real conversations. Real connection. Real-time.',
+    description:
+      'Real conversations. Real connection. Real-time.\nTransform followers into true fans. Build a tribe around your mission.',
     tag: 'Engagement',
   },
   {
     id: 12,
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
     title: 'Analytics & Reporting',
-    description: 'Strategy-first ad campaigns that stretch every penny.',
+    description:
+      'Strategy-first ad campaigns that stretch every penny.\nData you understand, growth you feel. Know what matters—act on what works.',
     tag: 'Analytics',
   },
 ];
