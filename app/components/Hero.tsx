@@ -160,18 +160,24 @@ const Hero = () => {
               <div className="md:col-span-4 md:ml-auto flex flex-col items-start md:items-end gap-4">
                 <span className="typography-small-white-90">{selected.trustedBy}</span>
                 <div className="flex items-center gap-4">
-                  <a href="#" aria-label="Instagram" className="transition-opacity hover:opacity-80">
+                  <a
+                    href="https://www.instagram.com/soical_monks?igsh=aHU4cTV5eXgwaHE="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    className="transition-opacity hover:opacity-80"
+                  >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-white">
                       <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" strokeWidth="1.5"/>
                       <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.5"/>
                       <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
                     </svg>
                   </a>
-                  <a href="#" aria-label="Twitter" className="transition-opacity hover:opacity-80">
+                  {/* <a href="#" aria-label="Twitter" className="transition-opacity hover:opacity-80">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-white">
                       <path d="M21.5 3.5l-9 17-3-7-7-3 17-7-7 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>
