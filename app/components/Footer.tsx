@@ -64,12 +64,33 @@ const Footer = () => {
                     Contact
                   </a>
                 </li>
-                <li>
-                  <a href="#" className="typography-small hover:text-gray-900 transition-colors">
-                    404
-                  </a>
-                </li>
+               
               </ul>
+              {/* Instagram Link */}
+              <div className="mt-6">
+                <a
+                  href="https://www.instagram.com/soical_monks?igsh=aHU4cTV5eXgwaHE="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    className="w-5 h-5"
+                  >
+                    <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                  </svg>
+                  <span className="typography-small">Instagram</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

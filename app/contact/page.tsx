@@ -133,6 +133,38 @@ const ContactPage = () => {
                     </a>
                   </div>
                 </div>
+
+                {/* Instagram */}
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gray-100 flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5 sm:w-6 sm:h-6 text-gray-900"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z"
+                      />
+                      <circle cx="12" cy="12" r="4" strokeLinecap="round" strokeLinejoin="round" />
+                      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="typography-title mb-1">Instagram</h3>
+                    <a
+                      href="https://www.instagram.com/soical_monks?igsh=aHU4cTV5eXgwaHE="
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="typography-body text-gray-600 hover:text-gray-900 transition-colors break-words"
+                    >
+                      soical_monks
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 

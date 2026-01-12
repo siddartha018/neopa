@@ -27,7 +27,7 @@ const Navbar = () => {
             <Link href="/#portfolio" className="transition-colors hover:text-white">Services</Link>
             <Link href="/#how-we-work" className="transition-colors hover:text-white">How We Work</Link>
             <Link href="/#content-calendar" className="transition-colors hover:text-white">Calendar</Link>
-            <Link href="/contact" className="transition-colors hover:text-white">Contact</Link>
+            {/* <Link href="/contact" className="transition-colors hover:text-white">Contact</Link> */}
           </nav>
 
           {/* Mobile menu button */}
