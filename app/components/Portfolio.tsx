@@ -90,7 +90,7 @@ const portfolioItems = [
 
 const Portfolio = () => {
   return (
-    <section className="w-full bg-gray-50 py-20 md:py-28">
+    <section id="portfolio" className="w-full bg-gray-50 py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section heading */}
         <div className="text-center mb-14 md:mb-16">

@@ -24,10 +24,10 @@ const Navbar = () => {
           {/* Nav links - Desktop */}
           <nav className="hidden flex-1 items-center justify-center gap-6 typography-eyebrow-white sm:flex">
             <Link href="/#home" className="transition-colors hover:text-white">Home</Link>
-            <Link href="/#services" className="transition-colors hover:text-white">Services</Link>
+            <Link href="/#portfolio" className="transition-colors hover:text-white">Services</Link>
             <Link href="/#how-we-work" className="transition-colors hover:text-white">How We Work</Link>
             <Link href="/#content-calendar" className="transition-colors hover:text-white">Calendar</Link>
-            <Link href="/#contact" className="transition-colors hover:text-white">Contact</Link>
+            <Link href="/contact" className="transition-colors hover:text-white">Contact</Link>
           </nav>
 
           {/* Mobile menu button */}
@@ -51,12 +51,12 @@ const Navbar = () => {
           </button>
 
           {/* CTA - Desktop */}
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="hidden sm:inline-flex items-center gap-2 rounded-xl border border-white/30 bg-transparent px-5 py-2 typography-button text-white transition-all hover:bg-white/10 hover:border-white/50"
           >
             Contact
-          </a>
+          </Link>
         </div>
 
         {/* Mobile menu */}
@@ -71,7 +71,7 @@ const Navbar = () => {
                 Home
               </Link>
               <Link
-                href="/#services"
+                href="/#portfolio"
                 onClick={() => setIsMenuOpen(false)}
                 className="typography-eyebrow-white py-2 transition-colors hover:text-white"
               >
@@ -92,14 +92,14 @@ const Navbar = () => {
                 Calendar
               </Link>
               <Link
-                href="/#contact"
+                href="/contact"
                 onClick={() => setIsMenuOpen(false)}
                 className="typography-eyebrow-white py-2 transition-colors hover:text-white"
               >
                 Contact
               </Link>
               <Link
-                href="/#contact"
+                href="/contact"
                 onClick={() => setIsMenuOpen(false)}
                 className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-transparent px-4 py-2 typography-button text-white mt-2 hover:bg-white/10"
               >

@@ -3,10 +3,9 @@ import React from 'react';
 const Testimonials = () => {
   const testimonials = [
     {
-      quote: 'Best Quality That Boosted Our Brand',
-      body: 'The photos were sharp, clean, and made our website look premium.',
+      quote: 'Social Monks helps us build the brand',
+      body: 'They are really good at content creation and made a huge difference for us.',
       name: 'PathBreakers',
-      
       avatar: '/nimages/path.png',
     },
     // Add more testimonials below as needed, but one should be "fiern" and featured.

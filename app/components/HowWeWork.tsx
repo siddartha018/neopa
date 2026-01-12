@@ -109,7 +109,7 @@ const HowWeWork = () => {
             Ready to build media that actually works?
           </p>
           <a
-            href="#contact"
+            href="/contact"
             className="inline-flex items-center justify-center rounded-xl bg-gray-900 text-white px-8 py-4 typography-button hover:bg-gray-800 transition-colors duration-200"
           >
             Start a Conversation

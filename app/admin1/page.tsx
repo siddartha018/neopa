@@ -12,8 +12,18 @@ interface CalendarEvent {
   description: string;
 }
 
+interface ContactSubmission {
+  id?: number;
+  name: string;
+  email: string;
+  phone?: string;
+  message: string;
+  created_at: string;
+}
+
 export default function AdminDashboard() {
   const [events, setEvents] = useState<CalendarEvent[]>([]);
+  const [contactSubmissions, setContactSubmissions] = useState<ContactSubmission[]>([]);
   const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState<CalendarEvent>({
     date: '',
@@ -27,7 +37,10 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     // Setup DB first if not exists (optional, but good for first run)
-    fetch('/api/setup-db').then(() => fetchEvents());
+    fetch('/api/setup-db').then(() => {
+      fetchEvents();
+      fetchContactSubmissions();
+    });
   }, []);
 
   const fetchEvents = async () => {
@@ -39,6 +52,16 @@ export default function AdminDashboard() {
     } catch (error) {
       console.error('Error fetching events:', error);
       setLoading(false);
+    }
+  };
+
+  const fetchContactSubmissions = async () => {
+    try {
+      const res = await fetch('/api/contact');
+      const data = await res.json();
+      setContactSubmissions(data);
+    } catch (error) {
+      console.error('Error fetching contact submissions:', error);
     }
   };
 
@@ -101,6 +124,32 @@ export default function AdminDashboard() {
     } catch (error) {
       console.error('Error deleting event:', error);
     }
+  };
+
+  const handleDeleteContact = async (id?: number) => {
+    if (!id || !confirm('Are you sure you want to delete this contact submission?')) return;
+    
+    try {
+      await fetch('/api/contact', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id }),
+      });
+      fetchContactSubmissions();
+    } catch (error) {
+      console.error('Error deleting contact submission:', error);
+    }
+  };
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
   };
 
   return (
@@ -244,6 +293,65 @@ export default function AdminDashboard() {
                     >
                       Delete
                     </button>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+
+        {/* Contact Submissions Section */}
+        <div className="bg-gray-900 rounded-2xl shadow-xl overflow-hidden border border-gray-800 p-8 mt-8">
+          <h2 className="text-2xl font-bold text-blue-400 font-playfair mb-6">Contact Submissions</h2>
+          <div className="space-y-4">
+            {contactSubmissions.length === 0 ? (
+              <p className="text-gray-500 text-center py-8">No contact submissions yet.</p>
+            ) : (
+              contactSubmissions.map((submission) => (
+                <div
+                  key={submission.id}
+                  className="bg-black border border-gray-800 rounded-xl p-6 hover:border-blue-900/50 transition-colors"
+                >
+                  <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-2">
+                        <h3 className="font-bold text-white text-lg">{submission.name}</h3>
+                        <span className="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded border border-gray-700">
+                          {formatDate(submission.created_at)}
+                        </span>
+                      </div>
+                      <div className="space-y-1 text-sm">
+                        <div className="flex items-center gap-2">
+                          <span className="text-blue-400 font-medium">Email:</span>
+                          <a
+                            href={`mailto:${submission.email}`}
+                            className="text-gray-300 hover:text-blue-400 transition-colors"
+                          >
+                            {submission.email}
+                          </a>
+                        </div>
+                        {submission.phone && (
+                          <div className="flex items-center gap-2">
+                            <span className="text-blue-400 font-medium">Phone:</span>
+                            <a
+                              href={`tel:${submission.phone}`}
+                              className="text-gray-300 hover:text-blue-400 transition-colors"
+                            >
+                              {submission.phone}
+                            </a>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => handleDeleteContact(submission.id)}
+                      className="px-4 py-2 text-sm font-medium text-red-400 bg-red-900/20 rounded-lg hover:bg-red-900/40 transition-colors border border-red-900/30"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-800">
+                    <p className="text-gray-300 whitespace-pre-wrap">{submission.message}</p>
                   </div>
                 </div>
               ))

@@ -60,7 +60,7 @@ const Footer = () => {
               <h3 className="typography-title mb-4">Utility Pages</h3>
               <ul className="space-y-3">
                 <li>
-                  <a href="#" className="typography-small hover:text-gray-900 transition-colors">
+                  <a href="/contact" className="typography-small hover:text-gray-900 transition-colors">
                     Contact
                   </a>
                 </li>

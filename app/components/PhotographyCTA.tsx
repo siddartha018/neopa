@@ -85,7 +85,7 @@ const PhotographyCTA = () => {
         {/* CTA Button */}
         <div className="text-center mb-6">
           <a
-            href="#contact"
+            href="/contact"
             className="inline-flex items-center justify-center rounded-xl bg-gray-900 hover:bg-gray-800 transition-colors px-8 py-4 text-white typography-button"
           >
             Start a Conversation

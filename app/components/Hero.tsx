@@ -142,7 +142,7 @@ const Hero = () => {
                 </p>
                 <div className="flex flex-wrap items-center gap-4">
                   <a
-                    href="#contact"
+                    href="/contact"
                     className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 typography-button text-gray-900 shadow-lg hover:bg-gray-50 transition-all duration-200 hover:scale-[1.02]"
                   >
                     Work With Us
