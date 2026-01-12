@@ -22,6 +22,12 @@ interface ContactSubmission {
 }
 
 export default function AdminDashboard() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+  const [loginData, setLoginData] = useState({ username: '', password: '' });
+  const [loginError, setLoginError] = useState('');
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+  
   const [events, setEvents] = useState<CalendarEvent[]>([]);
   const [contactSubmissions, setContactSubmissions] = useState<ContactSubmission[]>([]);
   const [loading, setLoading] = useState(true);
@@ -36,12 +42,61 @@ export default function AdminDashboard() {
   const [editingId, setEditingId] = useState<number | null>(null);
 
   useEffect(() => {
-    // Setup DB first if not exists (optional, but good for first run)
-    fetch('/api/setup-db').then(() => {
-      fetchEvents();
-      fetchContactSubmissions();
-    });
+    // Check if user is already authenticated
+    const authStatus = localStorage.getItem('admin_authenticated');
+    if (authStatus === 'true') {
+      setIsAuthenticated(true);
+      setIsCheckingAuth(false);
+      // Setup DB first if not exists (optional, but good for first run)
+      fetch('/api/setup-db').then(() => {
+        fetchEvents();
+        fetchContactSubmissions();
+      });
+    } else {
+      setIsCheckingAuth(false);
+    }
   }, []);
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoggingIn(true);
+    setLoginError('');
+
+    try {
+      const response = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(loginData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        localStorage.setItem('admin_authenticated', 'true');
+        setIsAuthenticated(true);
+        // Setup DB and fetch data after successful login
+        fetch('/api/setup-db').then(() => {
+          fetchEvents();
+          fetchContactSubmissions();
+        });
+      } else {
+        setLoginError(data.error || 'Invalid credentials');
+      }
+    } catch (error) {
+      setLoginError('Login failed. Please try again.');
+      console.error('Login error:', error);
+    } finally {
+      setIsLoggingIn(false);
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('admin_authenticated');
+    setIsAuthenticated(false);
+    setLoginData({ username: '', password: '' });
+  };
 
   const fetchEvents = async () => {
     try {
@@ -152,13 +207,99 @@ export default function AdminDashboard() {
     });
   };
 
+  // Show loading state while checking authentication
+  if (isCheckingAuth) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-blue-400">Loading...</div>
+      </div>
+    );
+  }
+
+  // Show login form if not authenticated
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 pt-24">
+        <div className="max-w-md w-full">
+          <div className="bg-gray-900 rounded-2xl shadow-xl overflow-hidden border border-gray-800 p-8">
+            <div className="text-center mb-6">
+              <h1 className="text-3xl font-bold text-blue-500 font-playfair mb-2">Admin Login</h1>
+              <p className="text-gray-400 text-sm">Enter your credentials to access the admin dashboard</p>
+            </div>
+
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div>
+                <label htmlFor="username" className="block text-sm font-bold text-blue-300 mb-1">
+                  Username
+                </label>
+                <input
+                  type="text"
+                  id="username"
+                  required
+                  value={loginData.username}
+                  onChange={(e) => setLoginData({ ...loginData, username: e.target.value })}
+                  className="w-full px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow shadow-sm placeholder:text-gray-500"
+                  placeholder="Enter username"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="password" className="block text-sm font-bold text-blue-300 mb-1">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  required
+                  value={loginData.password}
+                  onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
+                  className="w-full px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow shadow-sm placeholder:text-gray-500"
+                  placeholder="Enter password"
+                />
+              </div>
+
+              {loginError && (
+                <div className="p-3 rounded-lg bg-red-900/20 border border-red-900/50">
+                  <p className="text-red-400 text-sm">{loginError}</p>
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={isLoggingIn}
+                className="w-full px-6 py-2.5 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
+              >
+                {isLoggingIn ? 'Logging in...' : 'Login'}
+              </button>
+            </form>
+
+            <div className="mt-6 text-center">
+              <Link href="/" className="text-sm text-blue-400 hover:text-blue-300">
+                ← Back to Site
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Show admin dashboard if authenticated
   return (
     <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8 pt-24">
       <div className="max-w-4xl mx-auto">
         <div className="bg-gray-900 rounded-2xl shadow-xl overflow-hidden border border-gray-800 p-8 mb-8">
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-3xl font-bold text-blue-500 font-playfair">Admin Dashboard</h1>
-            <Link href="/" className="text-sm text-blue-400 hover:text-blue-300">← Back to Site</Link>
+            <div className="flex items-center gap-4">
+              <button
+                onClick={handleLogout}
+                className="text-sm text-red-400 hover:text-red-300 transition-colors"
+              >
+                Logout
+              </button>
+              <Link href="/" className="text-sm text-blue-400 hover:text-blue-300">← Back to Site</Link>
+            </div>
           </div>
           
           <div className="bg-black rounded-xl p-6 border border-blue-900/30 mb-8 shadow-sm">
