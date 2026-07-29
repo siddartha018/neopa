@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Social Monks - Media Agency Landing Page
 
-## Getting Started
+> **Where Strategy Meets Culture** — A clean, responsive, and performance-focused landing page designed for a modern media agency that builds scalable growth systems for brands.
 
-First, run the development server:
+---
 
+## ✨ Features
+
+* **🎨 Modern & Responsive Design:** Fully optimized for desktops, tablets, and mobile devices.
+* **⚡ Blazing Fast Performance:** Powered by Next.js for SSR/SSG capabilities and optimized asset loading.
+* **🧠 Insight-Driven Sections:** Includes strategic breakdowns, core benefits, and step-by-step methodologies.
+* **📅 Interactive Content Calendar:** Visual layout for tracking content schedules and campaign progress.
+* **🛠️ Comprehensive Service Showcase:** Interactive cards detailing Strategy, Content Creation, Management, Community, and Analytics.
+* **💬 Social Proof & FAQ:** Testimonials, client trust badges, and an expandable FAQ accordion.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Framework:** Next.js / React
+* **Styling:** Tailwind CSS / CSS Modules
+* **Icons:** Lucide Icons / Heroicons
+* **Deployment:** Vercel
+
+---
+
+## 🚀 Quick Start
+
+### 1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone [https://github.com/your-username/social-monks-landing-page.git](https://github.com/your-username/social-monks-landing-page.git)
+cd social-monks-landing-page
